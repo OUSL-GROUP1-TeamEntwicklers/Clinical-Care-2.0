@@ -118,7 +118,7 @@ if (isset($_POST['view_appoinment'])) {
 				<a href="add_diagnosis.php?add_diagnosis=<?php echo $row['p_id']; ?>" class="edit_btn" >Add Diagnosis</a>
     			</td>
                 <td id ="edit">
-    				<a href="add_checkup.php" class="edit_btn">Add Checkups</a>
+    				<a href="add_checkup.php?add_checkup=<?php echo $row['p_id']; ?>" class="edit_btn">Add Checkups</a>
     			</td>
 
     			

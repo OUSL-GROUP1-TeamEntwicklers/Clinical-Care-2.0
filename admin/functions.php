@@ -132,5 +132,29 @@
     }
   }
 
+
+  //approve appoinments
+
+  if (isset($_POST['approve_appoinment'])) {
+
+	$booking_id =   $_POST['booking_id'];
+      $doctor = $_POST['doctor'];
+      $p_id = $_POST['p_id'];
+      $booking_date =$_POST['booking_date'];
+      $selected_time = $_POST['selected_time'];
+      $approval_time =$_POST['approval_time'];
+      $approval = $_POST['approval'];
+      $status = $_POST['status'];
+
+
+	
+
+	mysqli_query($db, "UPDATE booking SET approval_time = '$approval_time',approval = '$approval', status = '$status' WHERE booking_id ='$booking_id'");
+
+	$_SESSION['message'] = "Data is updated!";
+	header('location: admin_home.php');
+
+   }
+
 // ***************************************************************************************************************
   ?>

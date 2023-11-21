@@ -18,6 +18,10 @@
 
 	<?php include('link_css.php'); ?>
 	<?php include('link_js.php'); ?>
+
+
+
+	
 </head>
 <body>
 
@@ -26,6 +30,7 @@
       <ul>
       	<li><a href="booking.php">Home</a></li>
 		<li><a href="view_clinics.php">View Clinics</a></li>
+		<li><a href="notifications.php">Notifications</a></li>
         <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">Logout</a></li>
         <li>
 				<!-- logged in user information -->
@@ -66,42 +71,22 @@
 		<input type="Date" name="booking_date" placeholder="Enter Booking Date" id="name"><br><br>
 
 		<label> Clinic</label><br><br>
-		<select id="slt" name="doctor">
-			<option value=""></option>
-			
-							<option value="Breast Disease Clinic">Breast Disease Clinic</option>
-							<option value="Cardiology clinic">Cardiology clinic</option>
-							<option value="Cardio Thorasic Clinic">Cardio Thorasic Clinic</option>
-							<option value="Chest Clinic">Chest Clinic</option>
-							<option value="Dental Clinic">Dental Clinic</option>
-							<option value="Dermatology Clinic">Dermatology Clinic</option>
-							<option value="Diabetes & Endocrine Clinic">Diabetes & Endocrine Clinic</option>
-							<option value="ENT Clinic">ENT Clinic</option>
-							<option value="Eye Clinic">Eye Clinic</option>
-							<option value="Forensic Psychatric Clinic">Forensic Psychatric Clinic</option>
-							<option value="Gastro Enterology Clinic (Physician)">Gastro Enterology Clinic (Physician)</option>
-							<option value="Gastro Intestinal Clinic (Surgeon)">Gastro Intestinal Clinic (Surgeon)</option>
-							<option value="Genito Urinary Clinic">Genito Urinary Clinic</option>
-							<option value="Heamatology Clinic">Heamatology Clinic</option>
-							<option value="Medical Clinics">Medical Clinics</option>
-							<option value="Nephrology Clinic">Nephrology Clinic</option>
-							<option value="Neurology Clinic">Neurology Clinic</option>
-							<option value="Neuro Surgical Clinic">Neuro Surgical Clinic </option>
-							<option value="Nutrition Clinic">Nutrition Clinic</option>
-							<option value="Oncology Clinic">Oncology Clinic</option>
-							<option value="Onco Surgical Clinic">Onco Surgical Clinic</option>
-							<option value="Orthopaedic Clinic">Orthopaedic Clinic</option>
-							<option value="Paediatric Clinics">Paediatric Clinics</option>
-							<option value="Pain Management Clinic">Pain Management Clinic</option>
-							<option value="Palliative Care Clinic">Palliative Care Clinic</option>
-							<option value="Plastic Surgery Clinic">Plastic Surgery Clinic</option>
-							<option value="Psychiatric Clinic">Psychiatric Clinic</option>
-							<option value="Rabies Treatment Clinic">Rabies Treatment Clinic</option>
-							<option value="Rheumatology Clinic">Rheumatology Clinic</option>
-							<option value="Speech Therapy Clinic">Speech Therapy Clinic</option>
-							<option value="Surgical Clinics">Surgical Clinics</option>
-							<option value="Vascular & Transplant Clinic">Vascular & Transplant Clinic</option>
-		</select>
+		<?php
+			echo '<select id="slt" name="doctor">';
+			// Add a default option
+			echo '<option value="" disabled selected>Select an option</option>';
+			$result_clinic = mysqli_query($db,"SELECT clinicname FROM scheduleclinic WHERE doctorincharge IS NOT NULL");
+			if($result_clinic->num_rows > 0){
+				while ($row = $result_clinic->fetch_assoc()) {
+					// Output option for each row
+					echo '<option value="' . $row["clinicname"] . '">' . $row["clinicname"] . '</option>';
+				}			
+				echo '</select>';
+			} else {
+				// If no options found
+				echo "No options available";
+			}
+		?>
 		<br><br>
 
 		<label>Select a Time</label><br><br>

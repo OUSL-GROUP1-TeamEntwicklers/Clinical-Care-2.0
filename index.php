@@ -17,7 +17,7 @@
         <ul>
           <li class="active"><a href="index.php"><span>Home</span></a></li>
           <li><a href="login.php"><span>Login</span></a></li>
-          <li><a href="Notifications.php"><span>Notifications</span></a></li>          
+                  
           <li><a href="about.php"><span>About Us</span></a></li>
           <li><a href="contact.php"><span>Contact Us</span></a></li>
         </ul>

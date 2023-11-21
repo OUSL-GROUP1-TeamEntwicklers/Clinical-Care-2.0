@@ -1,4 +1,4 @@
-<?php include('function.php');
+<?php include('functions.php');
 
 
 
@@ -51,20 +51,18 @@ if (isset($_POST['view_appoinment'])) {
 	<nav>
     <label id="title">| View Appoinments</label>
       <ul>
-      	<li><a href="doctor_home.php">Home</a></li>
+      	<li><a href="admin_home.php">Home</a></li>
         <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">Logout</a></li>
         <li>
-				<!-- logged in user information -->
+        <?php  if (isset($_SESSION['user'])) : ?>
+                <strong><?php echo $_SESSION['user']['user_type']; ?></strong>
 
-     		<?php  if (isset($_SESSION['user'])) : ?>
-              <strong><?php echo $_SESSION['user']['user_type']="Patient"; ?></strong>
+                <small>
+                    <i  style="color: cyan;">(<?php echo ucfirst($_SESSION['user']['user_name']); ?>)</i> 
+                    <img src="/pis/images/18.png" class="profile_info">
+                </small>
 
-            <small>
-                <i  style="color: cyan;">(<?php echo ucfirst($_SESSION['user']['fname']); ?>)</i> 
-                <img src="/pis/images/17.png" class="profile_info">
-             </small>
-
-        <?php endif ?>
+            	<?php endif ?>
  		</li>
 
       </ul>
@@ -99,8 +97,8 @@ if (isset($_POST['view_appoinment'])) {
     			<th id="date">Date</th>
                 <th id="reason">Reason</th>
                 <th id="doctorincharge">Doctor In Charge</th>
-    			<th id="diagnosis">Diagnosis</th>
-				<th id="checkups">Checkups</th>
+    			<th id="approval">Approval</th>
+				
     				
     		</tr>
     	</thead>
@@ -115,11 +113,9 @@ if (isset($_POST['view_appoinment'])) {
     			<td id="reason"><?php echo $row['reason']; ?></td>
     			<td id="doctorincharge"><?php echo $row['doctorincharge']; ?></td>
     			<td id ="edit">
-				<a href="add_diagnosis.php?add_diagnosis=<?php echo $row['p_id']; ?>" class="edit_btn" >Add Diagnosis</a>
+				<a href="approveappoinment.php?approve_appoinment=<?php echo $row['p_id']; ?>" class="edit_btn" >Approve</a>
     			</td>
-                <td id ="edit">
-    				<a href="add_checkup.php?add_checkup=<?php echo $row['p_id']; ?>" class="edit_btn">Add Checkups</a>
-    			</td>
+                
 
     			
 

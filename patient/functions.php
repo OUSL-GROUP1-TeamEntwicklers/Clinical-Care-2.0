@@ -170,6 +170,12 @@ if (isset($_POST['sign_btn'])) {
 				$query = "INSERT INTO booking (`p_id`,`booking_date`,`selected_time`,`doctor`,`reason`,`approval`) 
 						  VALUES('$p_id','$booking_date','$selected_time','$doctor','$reason','$approval')";
 				mysqli_query($db, $query);
+
+				$message = "You made an appoinment for"."  " .$doctor ."  "." on ". $booking_date ."  " . " at " . $selected_time . " .  " . "  "."You will get a notification when your appoinment is approved mentioning your time slot." ;
+				
+				$query2 = "INSERT INTO `notification` (`message`, `p_id`) VALUES ('$message','$p_id')";
+				mysqli_query($db, $query2);
+
 				$_SESSION['message']  = "New booking is successfully added!!";
 				header('location: /pis/patient/booking.php');
 			}else{

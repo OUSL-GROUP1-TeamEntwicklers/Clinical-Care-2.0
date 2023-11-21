@@ -54,6 +54,18 @@
 				
           
 	</nav>
+	
+<!--ul>
+				<li><a class ="tile1" href="admin_home.php">Home</a></li>
+				<li><a class ="tile1" href="add_user.php">Add User</a></li>
+				<li><a class ="tile1" href="user_list.php">Edit User</a></li>
+				<li><a class ="tile1" href="add_item.php">Schedule Clinic</a></li>
+				<li><a class ="tile1" href="item_list.php">View Clinic</a></li>
+				<li><a id = "approve_appoinment"href="approveappoinment.php">Approve Appoinments</a></li>
+				<li><a class ="tile1" href="view_appoinments.php">View Appoinments</a></li>
+</ul-->
+
+
 <!-- Error Mesage Displaying -->
 	<?php if (isset($_SESSION['message'])):?>
 		<div class="msg">

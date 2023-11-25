@@ -42,13 +42,7 @@
 					$_SESSION['message']  = "You are now logged in";
 					header('location: doctor/doctor_home.php');
 
-				}elseif ($logged_in_user['user_type'] == 'nurse') {
-
-					$_SESSION['user'] = $logged_in_user;
-					$_SESSION['message']  = "You are now logged in";
-					header('location: /pis/nurse/nurse_home.php');
-				}
-				else
+				}else
 				{
 					$_SESSION['user'] = $logged_in_user;
 					$_SESSION['message']  = "You are now logged in";
@@ -80,14 +74,7 @@
 		}
 	}
 
-	function isNurse()
-	{
-		if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'nurse') {
-			return true;
-		}else{
-			return false;
-		}
-	}
+	
 
 	function isPatient()
 	{
@@ -98,14 +85,7 @@
 		}
 	}
 
-	function isReceptionist()
-	{
-		if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'receptionist') {
-			return true;
-		}else{
-			return false;
-		}
-	}
+	
 
 
 ?>

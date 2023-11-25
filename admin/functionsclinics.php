@@ -86,15 +86,15 @@
 
 	 if (isset($_POST['update_clinic'])) {
 		// Get clinic ID from the URL parameter
-    	$clinicid = $_GET['edit'];
+    	$clinicid = $_GET['editclinic'];
 		// Retrieve other form data
-		$clinicname = $_POST['clinicname'];
+		$clinicname = $_POST['clinics'];
 		$date = $_POST['date'];
 		$starttime = $_POST['starttime'];
 		$endtime = $_POST['endtime'];
 		$doctorincharge = $_POST['doctorincharge'];
 
-		mysqli_query($db,"UPDATE scheduleclinic SET clinicname ='$clinicname' , date ='$date', starttime ='$starttime', endtime = '$endtime', doctorincharge = '$doctorincharge' WHERE clinicid ='$clinicid'");
+		mysqli_query($db,"UPDATE scheduleclinic SET clinicid = '$clinicid' ,clinicname ='$clinicname' , date ='$date', starttime ='$starttime', endtime = '$endtime', doctorincharge = '$doctorincharge' WHERE clinicid ='$clinicid'");
 
 		$message = $clinicname ."  ". "is rescheduled to". $date ." from " . $starttime . "  " . " to " . $endtime . "Please update your appoinments according to the new date.";
 				
@@ -112,13 +112,13 @@
 		// Get clinic ID from the URL parameter
     	$clinicid = $_GET['edit'];
 		// Retrieve other form data
-		$clinicname = $_POST['clinicname'];
+		$clinicname = $_POST['clinics'];
 		$date = $_POST['date'];
 		$starttime = $_POST['starttime'];
 		$endtime = $_POST['endtime'];
 		$doctorincharge = $_POST['doctorincharge'];
 
-		mysqli_query($db,"UPDATE scheduleclinic SET clinicname ='$clinicname' , date ='$date', starttime ='$starttime', endtime = '$endtime', doctorincharge = '$doctorincharge' WHERE clinicid ='$clinicid'");
+		mysqli_query($db,"UPDATE scheduleclinic SET clinicname ='$doctor' , date ='$date', starttime ='$starttime', endtime = '$endtime', doctorincharge = '$doctorincharge' WHERE clinicid ='$clinicid'");
 
 		$message = $clinicname ."  ". "is rescheduled to". $date ." from " . $starttime . "  " . " to " . $endtime . "Please update your appoinments according to the new date.";
 				

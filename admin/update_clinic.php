@@ -14,9 +14,9 @@ if (!isAdmin()) {
   $clinicid = '';
   $edit = false;
 
-if (isset($_GET['edit'])) {
+if (isset($_GET['editclinic'])) {
 	
-  $clinicid= $_GET['edit'];
+  $clinicid= $_GET['editclinic'];
   $edit = true;
   $rec = mysqli_query($db, "SELECT * FROM scheduleclinic WHERE clinicid = $clinicid"); 
 

@@ -65,7 +65,7 @@ if (isset($_POST['view_booking'])) {
 
 <div class="container">
 
-	<h1>Booking Details</h1><br><br>
+	<h1>BOOKING DETAILS</h1><br><br>
 
 	<form action="view_appoinment.php" method="post" id="frm">
 

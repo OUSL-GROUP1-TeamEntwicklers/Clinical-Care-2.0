@@ -121,6 +121,7 @@
     			<th id="a">Approval Time</th>
     			<th>View appoinment</th>
     			<th> Edit appoinment</th>
+				<th> Delete appoinment</th>
     		</tr>
     	</thead>
 

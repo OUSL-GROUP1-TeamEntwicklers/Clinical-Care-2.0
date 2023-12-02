@@ -14,7 +14,7 @@
 
 <div class="container">
 	<div class="header">
-		<h2>Patient Login</h2>
+		<h2>PATIENT LOGIN</h2>
 	</div>
 	<div class="main">
 		<form method="post" action="login_patient.php">

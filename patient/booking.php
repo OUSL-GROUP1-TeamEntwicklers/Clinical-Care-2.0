@@ -60,7 +60,7 @@
 
 <div class="container">
 
-	<h1>BOOKING</h1>
+	<h1>Booking</h1>
 
 	<form action="booking.php" method="post" id="frm">
         <?php include('../errors.php'); ?>

@@ -24,7 +24,7 @@
 	<nav>
     <label id="title">| Clinical Care</label>
       <ul>
-      	<li><a href="booking.php">HOME</a></li>
+      	<li><a href="booking.php">Home</a></li>
         <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">Logout</a></li>
         <li>
 				<!-- logged in user information -->

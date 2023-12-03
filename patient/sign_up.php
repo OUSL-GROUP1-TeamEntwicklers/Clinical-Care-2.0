@@ -21,7 +21,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SIGN UP</title>
+	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="/pis/css/admin/sign_up.css">
 	<link rel="stylesheet" type="text/css" href="/pis/css/all.css">
 </head>

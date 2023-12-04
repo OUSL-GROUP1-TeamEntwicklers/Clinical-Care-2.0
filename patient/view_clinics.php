@@ -106,64 +106,6 @@
 
 </div><br><br><br>
 
-<div id="s">
-<table id="allusers" class="table table-striped table-bordered" style="width: 100%">
-    	<thead>
-    		<tr>
-    			<th>Booking Id</th>
-    			<th id="a">Booking Date</th>
-				<th id="a">Selected Time</th>
-    			<th id="a">Reason</th>
-    			<th id="a">Clinic</th>
-    			<th id="a">Approval</th>
-    			<th id="a">Approval Time</th>
-    			<th>View appoinment</th>
-    			<th> Edit appoinment</th>
-    		</tr>
-    	</thead>
-
-    	<tbody> 
-    		<?php 
-            $p_id = $_SESSION['user']['p_id'];
-            $result_A = mysqli_query($db,"SELECT * FROM booking WHERE p_id = $p_id");
-            while ($row = mysqli_fetch_array($result_A)) { ?> 
-    		<tr>
-    			<td><?php echo $row['booking_id']; ?></td>
-    			<td id="a"><?php echo $row['booking_date']; ?></td> <!-- a refer as text align -->
-				<td id="a"><?php echo $row['selected_time']; ?></td>
-    			<td id="a"><?php echo $row['reason']; ?></td>
-    			<td id="a"><?php echo $row['doctor']; ?></td>
-    			
-                <td>
-                    <?php if ($row['approval']==0): ?>
-                        <button type="button" class="btn btn-danger btn-sm">Not Approved</button>
-                    <?php else: ?>
-                        <button type="button" class="btn btn-success btn-sm">Approved</button>
-                    <?php endif ?>
-                </td>
-            
-                <td>
-                    <?php if ($row['approval']==0): ?>
-                        Procesing
-                    <?php else: ?>
-                    <?php echo $row['approval_time']; ?>
-                    <?php endif ?>
-                </td>
-            
-
-    			<td>
-    				<a href="view_booking.php?view=<?php echo $row['booking_id']; ?>" class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i>VIEW</a>
-    			</td>
-
-    			<td>
-    				<a href="edit_booking.php?edit_booking=<?php echo $row['booking_id']; ?>" class="btn btn-primary btn-sm" ><i class="fas fa-eye"></i>EDIT</a>
-    			</td>
-
-    		</tr>
-    		<?php } ?>
-    	</tbody>	
-    </table>
-</div>
 
  <!-- data table (search, show entries etc..) -->
     <script>

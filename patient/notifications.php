@@ -80,10 +80,6 @@
     		<tr>
     			<td><?php echo $row['message']; ?></td>
     			
-            
-
-    			
-
     		</tr>
     		<?php } ?>
     	</tbody>	

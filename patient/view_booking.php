@@ -70,7 +70,7 @@ if (isset($_POST['view_booking'])) {
 	<form action="view_appoinment.php" method="post" id="frm">
 
     <label style="font-style: normal; font-weight: normal;">Patient Name :</label>
-      <label style="font-style: normal; font-weight: normal;"><?php echo $booking_date; ?></label><br>
+      <label style="font-style: normal; font-weight: normal;"><?php echo $fname; ?>  <?php echo $lname; ?></label><br>
 
     
       <label style="font-style: normal; font-weight: normal;">Booking Date :</label>
@@ -93,7 +93,7 @@ if (isset($_POST['view_booking'])) {
       <?php endif ?>
 
       <label style="font-style: normal; font-weight: normal;">Status :</label>
-      <?php if ($status==0): ?>
+      <?php if ($status==""): ?>
         <label style="font-style: normal; font-weight: normal;"> <b>Pending</b> </label><br>
       <?php else: ?>
         <label style="font-style: normal; font-weight: normal;"><?php echo $status; ?></label><br>

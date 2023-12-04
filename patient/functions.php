@@ -139,12 +139,12 @@ if (isset($_POST['sign_btn'])) {
 // Booking
 	if (isset($_POST['booking'])) {
 	// receive all input values from the form
-		$p_id       = ($_POST['p_id']);
-		$booking_date       = ($_POST['booking_date']);
-		$selected_time  = ($_POST['selected_time']);
-		$doctor  = ($_POST['doctor']);
-		$reason = ($_POST['reason']);
-		$approval	=0;
+		$p_id          = ($_POST['p_id']);
+		$booking_date  = ($_POST['booking_date']);
+		$selected_time = ($_POST['selected_time']);
+		$doctor        = ($_POST['doctor']);
+		$reason        = ($_POST['reason']);
+		$approval	   =0;
 		// form validation: ensure that the form is correctly filled
 		if (empty($p_id)) { 
 			array_push($errors, "Booking date is required"); 
@@ -188,10 +188,16 @@ if (isset($_POST['sign_btn'])) {
 		if (isset($_GET['view'])) {
           $booking_id = $_GET['view'];
           
-          $record = mysqli_query($db, "SELECT * FROM booking WHERE booking_id=$booking_id");
+		  $record = mysqli_query($db, "SELECT booking.*, patient.fname, patient.lname
+          FROM booking
+          JOIN patient ON booking.p_id = patient.p_id
+          WHERE booking.booking_id = $booking_id;
+          ");
 
           $r = mysqli_fetch_array($record);
           $booking_id=$r['booking_id'];
+		  $fname = $r['fname'];
+          $lname = $r['lname'];
           $booking_date=$r['booking_date'];
           $doctor=$r['doctor'];
 		  $selected_time=$r['selected_time'];

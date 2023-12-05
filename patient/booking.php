@@ -109,6 +109,7 @@
 </div><br><br><br>
 
 <div id="s">
+		<h1>Appoinment History</h1>
 <table id="allusers" class="table table-striped table-bordered" style="width: 100%">
     	<thead>
     		<tr>

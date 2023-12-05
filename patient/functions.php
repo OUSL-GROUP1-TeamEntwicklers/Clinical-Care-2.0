@@ -1,105 +1,105 @@
 <?php include('../functions.php');
 // ****************************************** Sign Up ************************************
-	$fname= "";
-	$lname="";
-	$birth_date="";
-	$age="";
-	$id_number="";
-	$address_line1="";
-	$address_line2="";
-	$contact_no="";
-	$gender="";
-	$civil_status="";
-	$password_1  = "";
-	$password_2  = "";
-	$approval_time = "";
-	$date = "";
-	$time = "";
-
+$fname= "";
+    $lname="";
+    $birth_date="";
+    $age="";
+    $id_number="";
+    $address_line1="";
+    $address_line2="";
+    $email="";
+    $gender="";
+    $civil_status="";
+    $password_1  = "";
+    $password_2  = "";
+    $approval_time = "";
+    $date = "";
+    $time = "";
+ 
 if (isset($_POST['create_account'])) {
-
-	$fname=$_POST['fname'];
-	$lname=$_POST['lname'];
-	$birth_date=$_POST['birth_date'];
-	$age=$_POST['age']; 
-	$id_number=$_POST['id_number']; 
-	$address_line1=$_POST['address_line1']; 
-	$address_line2=$_POST['address_line2']; 
-	$contact_no=$_POST['contact_no']; 
-	$gender=$_POST['gender']; 
-	$civil_status=$_POST['civil_status']; 
-	$password_1  = ($_POST['password_1']);
-	$password_2  = ($_POST['password_2']);
-	$date  = ($_POST['date']);
-	$time  = ($_POST['time']);
-
-	// form validation: ensure that the form is correctly filled
-		if (empty($fname)) { 
-			array_push($errors, "First Name is required"); 
-		}
-		if (empty($lname)) { 
-			array_push($errors, "Last Name is required"); 
-		}
-		
-		if (empty($birth_date)) { 
-			array_push($errors, "Birthday is required"); 
-		}
-
-		if (empty($age)) { 
-			array_push($errors, "Age is required"); 
-		}
-
-		if (empty($id_number)) { 
-			array_push($errors, "Id Number is required"); 
-		}
-
-		if (empty($address_line1)) { 
-			array_push($errors, "Address Line 1 is required"); 
-		}
-		
-		if (empty($address_line2)) { 
-			array_push($errors, "Address Line 2 is required"); 
-		}
-
-		if (empty($contact_no)) { 
-			array_push($errors, "Contact No is required"); 
-		}
-
-		if (empty($gender)) { 
-			array_push($errors, "Gender is required"); 
-		}
-		
-		if (empty($civil_status)) { 
-			array_push($errors, "Civil Status is required"); 
-		}
-
-		if (empty($password_1)) { 
-			array_push($errors, "Password is required"); 
-		}
-		if ($password_1 != $password_2) {
-			array_push($errors, "The two passwords do not match");
-		}
-
-		if (empty($date)) { 
-			array_push($errors, "Date is required"); 
-		}
-		if (empty($time)) { 
-			array_push($errors, "Time is required"); 
-		}
-
-		// register user if there are no errors in the form
-		if (count($errors) == 0) {
-			$password = md5($password_1);//encrypt the password before saving in the database
-
-	mysqli_query ($db,"INSERT INTO `patient` (`p_id`,`fname`, `lname`, `birth_date`, `age`, `id_number`, `address_line1`, `address_line2`, `contact_no`, `gender`, `civil_status`, `password`, `date`, `time`) VALUES (NULL, '$fname', '$lname', '$birth_date', '$age', '$id_number', '$address_line1', '$address_line2','$contact_no', '$gender', '$civil_status', '$password', '$date', '$time');");
-
-	header('location: login_patient.php');
-	
-
+ 
+    $fname=$_POST['fname'];
+    $lname=$_POST['lname'];
+    $birth_date=$_POST['birth_date'];
+    $age=$_POST['age'];
+    $id_number=$_POST['id_number'];
+    $address_line1=$_POST['address_line1'];
+    $address_line2=$_POST['address_line2'];
+    $email=$_POST['email'];
+    $gender=$_POST['gender'];
+    $civil_status=$_POST['civil_status'];
+    $password_1  = ($_POST['password_1']);
+    $password_2  = ($_POST['password_2']);
+    $date  = ($_POST['date']);
+    $time  = ($_POST['time']);
+ 
+    // form validation: ensure that the form is correctly filled
+        if (empty($fname)) {
+            array_push($errors, "First Name is required");
+        }
+        if (empty($lname)) {
+            array_push($errors, "Last Name is required");
+        }
+       
+        if (empty($birth_date)) {
+            array_push($errors, "Birthday is required");
+        }
+ 
+        if (empty($age)) {
+            array_push($errors, "Age is required");
+        }
+ 
+        if (empty($id_number)) {
+            array_push($errors, "Id Number is required");
+        }
+ 
+        if (empty($address_line1)) {
+            array_push($errors, "Address Line 1 is required");
+        }
+       
+        if (empty($address_line2)) {
+            array_push($errors, "Address Line 2 is required");
+        }
+ 
+        if (empty($email)) {
+            array_push($errors, "Email is required");
+        }
+ 
+        if (empty($gender)) {
+            array_push($errors, "Gender is required");
+        }
+       
+        if (empty($civil_status)) {
+            array_push($errors, "Civil Status is required");
+        }
+ 
+        if (empty($password_1)) {
+            array_push($errors, "Password is required");
+        }
+        if ($password_1 != $password_2) {
+            array_push($errors, "The two passwords do not match");
+        }
+ 
+        if (empty($date)) {
+            array_push($errors, "Date is required");
+        }
+        if (empty($time)) {
+            array_push($errors, "Time is required");
+        }
+ 
+        // register user if there are no errors in the form
+        if (count($errors) == 0) {
+            $password = md5($password_1);//encrypt the password before saving in the database
+ 
+    mysqli_query ($db,"INSERT INTO `patient` (`p_id`,`fname`, `lname`, `birth_date`, `age`, `id_number`, `address_line1`, `address_line2`, `email`, `gender`, `civil_status`, `password`, `date`, `time`) VALUES (NULL, '$fname', '$lname', '$birth_date', '$age', '$id_number', '$address_line1', '$address_line2','$email', '$gender', '$civil_status', '$password', '$date', '$time');");
+ 
+    header('location: login_patient.php');
+   
+ 
 }else{
-						array_push($errors, "Connection errors !");	
+                        array_push($errors, "Connection errors !");
 }
-}		
+}      		
 // ******************************** Login Patient ***********************************************
 // LOGIN PATIENT
 if (isset($_POST['sign_btn'])) {

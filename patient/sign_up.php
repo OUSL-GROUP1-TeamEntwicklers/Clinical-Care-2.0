@@ -101,13 +101,13 @@
 				</tr>
 
 				<tr>
-					<td>	
-						<label>Contact No: </label><br><br><br>
-					</td>
-					<td>
-						<input type="text" name="contact_no" placeholder="000-000-0000" id="name"><br><br><br>		
-					</td>
-				</tr>
+                    <td>    
+                        <label>Email: </label><br><br><br>
+                    </td>
+                    <td>
+                    <input type="email" name="email" placeholder="Enter Your Email" id="name"><br><br><br>  
+                    </td>
+                </tr>
 
 				<tr>
 					<td>

@@ -72,7 +72,7 @@
     		<?php 
 			//P_id - Notifications
             $p_id = $_SESSION['user']['p_id'];
-            $result_B = mysqli_query($db,"SELECT * FROM `notification` WHERE p_id IS NULL OR p_id = $p_id");
+            $result_B = mysqli_query($db,"SELECT * FROM `notification` WHERE p_id IS NULL OR p_id = $p_id ORDER BY recipient_id DESC ");
             while ($row = mysqli_fetch_array($result_B)) { ?> 
     		<tr>
     			<td><?php echo $row['message']; ?></td>

@@ -54,7 +54,7 @@
 				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block; "><a  href="admin_home.php"style="font-size: 25px; margin: 100px; color: #fff; " >Home</a></li>
 				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block; "><a  href="add_user.php" style="font-size: 25px; margin: 50px; color: #fff; ">Add Staff</a></li>
 				<li style= "background-color: #2980b9; width: 250px; height: 150px;display: inline-block; "><a  href="user_list.php" style="font-size: 25px;margin: 50px;color: #fff;  ">Edit Staff</a></li>
-				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a  href="add_item.php" style="font-size:15px;margin: 50px; width:200px; color: #fff; ">Schedule Clinic</a></li>
+				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a  href="add_item.php" style="font-size:15px;margin: 50px;  color: #fff; ">Schedule Clinic</a></li>
 				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a  href="item_list.php" style="font-size: 25px; margin: 50px;color: #fff; ">View Clinic</a></li>
 				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a  href="view_appoinments.php" style="font-size: 20px; margin: 50px;color: #fff; ">View Appoinments</a></li>
 				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a  href="sendmail.php" style="font-size: 25px; margin: 50px;color: #fff; ">Send Mail</a></li>

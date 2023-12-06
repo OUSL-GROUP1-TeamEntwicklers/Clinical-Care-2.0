@@ -15,18 +15,17 @@
 	<?php include('link_js.php'); ?>
 
 <?php 
-$diagnosis="";
-$checkup_name ="";
-$doctor_comment = "";
+$diagnosis;
+$checkup_name ;
 
-if (isset($_POST['view_booking'])) {
+$record = mysqli_query($db, "SELECT p.p_id, b.booking_id, d.diagnosis, c.checkup_name FROM  patient p JOIN   booking b ON p.p_id = b.p_id JOIN   diagnosis d ON p.p_id = d.p_id JOIN  checkup c ON p.p_id = c.p_id");
+$r = mysqli_fetch_array($record);
 
-	$diagnosis=$_POST['diagnosis'];
-	$checkup_name=$_POST['checkup_name'];
-	$doctor_comment=$_POST['doctor_comment'];
+	//$diagnosis=$r['diagnosis'];
+	//$checkup_name=$r['checkup_name'];
+  $diagnosis="";
+  $checkup_name= "";
 	
-}
-
 ?>
 
 </head>

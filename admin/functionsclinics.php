@@ -84,7 +84,7 @@
 
 	//Update Records
 
-	 if (isset($_POST['update_clinic'])) {
+	 /*if (isset($_POST['update_clinic'])) {
 		// Get clinic ID from the URL parameter
     	$clinicid = $_GET['edit'];
 		// Retrieve other form data
@@ -104,7 +104,7 @@
 		$_SESSION['message'] = $clinicid;
 		header('location: item_list.php');
 
-	 }	
+	 }	*/
 
 	 
 

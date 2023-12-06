@@ -1,21 +1,6 @@
 <?php include('../functions.php');
 // ****************************************** Sign Up ************************************
-$fname= "";
-    $lname="";
-    $birth_date="";
-    $age="";
-    $id_number="";
-    $address_line1="";
-    $address_line2="";
-    $email="";
-    $gender="";
-    $civil_status="";
-    $password_1  = "";
-    $password_2  = "";
-    $approval_time = "";
-    $date = "";
-    $time = "";
- 
+
 if (isset($_POST['create_account'])) {
  
     $fname=$_POST['fname'];
@@ -103,6 +88,8 @@ if (isset($_POST['create_account'])) {
 // ******************************** Login Patient ***********************************************
 // LOGIN PATIENT
 if (isset($_POST['sign_btn'])) {
+
+    //Security SQL Injections
   $id_number = mysqli_real_escape_string($db, $_POST['id_number']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
@@ -119,6 +106,7 @@ if (isset($_POST['sign_btn'])) {
     $query = "SELECT * FROM patient WHERE id_number='$id_number' AND password='$password'";
     $resultss = mysqli_query($db, $query);
     if (mysqli_num_rows($resultss) == 1) {
+
      // check if user is admin or user
         $logged_in_user = mysqli_fetch_assoc($resultss);
 
@@ -147,7 +135,7 @@ if (isset($_POST['sign_btn'])) {
 		$approval	   =0;
 		// form validation: ensure that the form is correctly filled
 		if (empty($p_id)) { 
-			array_push($errors, "Booking date is required"); 
+			array_push($errors, "p_id is required"); 
 		}
 		
 		if (empty($booking_date)) { 
@@ -171,6 +159,7 @@ if (isset($_POST['sign_btn'])) {
 						  VALUES('$p_id','$booking_date','$selected_time','$doctor','$reason','$approval')";
 				mysqli_query($db, $query);
 
+        //Notifications
 				$message = "You made an appoinment for"."  " .$doctor ."  "." on ". $booking_date ."  " . " at " . $selected_time . " .  " . "  "."You will get a notification when your appoinment is approved mentioning your time slot." ;
 				
 				$query2 = "INSERT INTO `notification` (`message`, `p_id`) VALUES ('$message','$p_id')";
@@ -208,8 +197,8 @@ if (isset($_POST['sign_btn'])) {
 // updateBooking
 	if (isset($_POST['bookig_update'])) {
 
-		$booking_id     	=$_POST['booking_id'];
-		$selected_time      =$_POST['selected_time'];
+		$booking_id     =$_POST['booking_id'];
+		$selected_time  =$_POST['selected_time'];
 		$doctor     	=$_POST['doctor'];
 		$booking_date   =$_POST['booking_date'];
 		$reason   		=$_POST['reason'];

@@ -1,9 +1,5 @@
 <?php include('functions.php');
 
-// if (!isPatient()) {
-//         $_SESSION['msg'] = "You must log in first";
-//         header('location: ../booking.php');
-//     }
 ?>
 
 <!DOCTYPE html>
@@ -74,6 +70,7 @@
 
     	<tbody> 
     		<?php 
+			//P_id - Notifications
             $p_id = $_SESSION['user']['p_id'];
             $result_B = mysqli_query($db,"SELECT * FROM `notification` WHERE p_id IS NULL OR p_id = $p_id");
             while ($row = mysqli_fetch_array($result_B)) { ?> 

@@ -1,9 +1,5 @@
 <?php include('functions.php');
     
-    $booking_date = '';
-    $doctor = '';
-    $reason = '';
-	$selected_time = '';
     
 if (isset($_GET['edit_booking'])) {
     $booking_id = $_GET['edit_booking'];

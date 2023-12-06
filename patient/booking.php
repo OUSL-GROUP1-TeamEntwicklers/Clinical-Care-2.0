@@ -1,9 +1,5 @@
 <?php include('functions.php');
 
-// if (!isPatient()) {
-//         $_SESSION['msg'] = "You must log in first";
-//         header('location: ../booking.php');
-//     }
 ?>
 
 <!DOCTYPE html>

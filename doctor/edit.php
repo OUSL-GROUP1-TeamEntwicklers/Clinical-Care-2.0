@@ -11,7 +11,7 @@ if (!isDoctor()) {
     $fname = '';
     $lname ='';
     $id_number= '';
-    $contact_no = '';
+    $email= '';
    
     
 
@@ -26,7 +26,7 @@ if (isset($_GET['edit_p'])) {
     $fname = $record['fname'];
     $lname =$record['lname'];
     $id_number= $record['id_number'];
-    $contact_no = $record['contact_no'];
+    $email = $record['email'];
     
   }
 
@@ -91,8 +91,8 @@ if (isset($_GET['edit_p'])) {
         <label>ID Number :</label><br><br>
         <input type="text" id="id_number" name="id_number" value="<?php echo $id_number;?> "><br><br><br>
 
-        <label>Contact Number :</label><br><br>
-        <input type="text" id="contact_no" name="contact_no" value="<?php echo $contact_no;?> "><br><br><br>
+        <label>Email :</label><br><br>
+        <input type="text" id="email" name="email" value="<?php echo $email;?> "><br><br><br>
         <br><br><br>
 
         <button type="submit" class="btn btn-info" name="edit_p">Update Patient</button>

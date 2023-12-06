@@ -86,9 +86,9 @@
 
 	 if (isset($_POST['update_clinic'])) {
 		// Get clinic ID from the URL parameter
-    	$clinicid = $_GET['editclinic'];
+    	$clinicid = $_GET['edit'];
 		// Retrieve other form data
-		$clinicname = $_POST['clinics'];
+		$clinicname = $_POST['clinicname'];
 		$date = $_POST['date'];
 		$starttime = $_POST['starttime'];
 		$endtime = $_POST['endtime'];
@@ -106,30 +106,7 @@
 
 	 }	
 
-	 // approve appoinments
-
-	 if (isset($_POST['booking'])) {
-		// Get clinic ID from the URL parameter
-    	$clinicid = $_GET['edit'];
-		// Retrieve other form data
-		$clinicname = $_POST['clinics'];
-		$date = $_POST['date'];
-		$starttime = $_POST['starttime'];
-		$endtime = $_POST['endtime'];
-		$doctorincharge = $_POST['doctorincharge'];
-
-		mysqli_query($db,"UPDATE scheduleclinic SET clinicname ='$doctor' , date ='$date', starttime ='$starttime', endtime = '$endtime', doctorincharge = '$doctorincharge' WHERE clinicid ='$clinicid'");
-
-		$message = $clinicname ."  ". "is rescheduled to". $date ." from " . $starttime . "  " . " to " . $endtime . "Please update your appoinments according to the new date.";
-				
-		$query3 = "INSERT INTO `notification` (`message`) VALUES ('$message')";
-			mysqli_query($db, $query3);
-		
-		$_SESSION['message'] = $clinicid;
-		header('location: item_list.php');
-
-	 }	
-
+	 
 
      ?>
 

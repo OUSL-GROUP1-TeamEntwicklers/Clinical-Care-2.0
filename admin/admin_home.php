@@ -22,7 +22,7 @@
 	<?php include('link_js.php'); ?>
 </head>
 <body>
-	<nav>
+	<nav style="background-color: #082567">
 
 		<!-- <input type="checkbox" id="check">
 		<label for="check" class="checkbtn">
@@ -30,40 +30,39 @@
 		</label> -->
 		
 		<label id="title">| Admin</label>
-			<ul>
-				<li><a class="active" href="admin_home.php">Home</a></li>
-				<li><a href="add_user.php">Add User</a></li>
-				<li><a href="user_list.php">Edit User</a></li>
-				<li><a href="add_item.php">Schedule Clinic</a></li>
-				<li><a href="item_list.php">View Clinic</a></li>
-				<li><a href="/pis/index.php?logout='1' "style="font-size: 14px;" id="logout">Log out</a></li>
-				
-			    <li>
+		
+		<li style= "background-color: #082567; margin-left:1000px; height: 50px; display: inline-block; ">
 					<!-- logged in user information -->
 
 			    <?php  if (isset($_SESSION['user'])) : ?>
-                <strong><?php echo $_SESSION['user']['user_type']; ?></strong>
+                <strong style="color: white;font-size: 15px; "><?php echo $_SESSION['user']['user_type']; ?></strong>
 
                 <small>
-                    <i  style="color: cyan;">(<?php echo ucfirst($_SESSION['user']['user_name']); ?>)</i> 
+                    <i  style="color: cyan; font-size:15px;">(<?php echo ucfirst($_SESSION['user']['user_name']); ?>)</i> 
                     <img src="/pis/images/18.png" class="profile_info">
                 </small>
 
             	<?php endif ?>
 			 	</li>
+				 
+			
 				
           
 	</nav>
 	
-<!--ul>
-				<li><a class ="tile1" href="admin_home.php">Home</a></li>
-				<li><a class ="tile1" href="add_user.php">Add User</a></li>
-				<li><a class ="tile1" href="user_list.php">Edit User</a></li>
-				<li><a class ="tile1" href="add_item.php">Schedule Clinic</a></li>
-				<li><a class ="tile1" href="item_list.php">View Clinic</a></li>
-				<li><a id = "approve_appoinment"href="approveappoinment.php">Approve Appoinments</a></li>
-				<li><a class ="tile1" href="view_appoinments.php">View Appoinments</a></li>
-</ul-->
+<ul>
+				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block; "><a  href="admin_home.php"style="font-size: 25px; margin: 100px; color: #fff; " >Home</a></li>
+				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block; "><a  href="add_user.php" style="font-size: 25px; margin: 50px; color: #fff; ">Add Staff</a></li>
+				<li style= "background-color: #2980b9; width: 250px; height: 150px;display: inline-block; "><a  href="user_list.php" style="font-size: 25px;margin: 50px;color: #fff;  ">Edit Staff</a></li>
+				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a  href="add_item.php" style="font-size:15px;margin: 50px; width:200px; color: #fff; ">Schedule Clinic</a></li>
+				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a  href="item_list.php" style="font-size: 25px; margin: 50px;color: #fff; ">View Clinic</a></li>
+				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a  href="view_appoinments.php" style="font-size: 20px; margin: 50px;color: #fff; ">View Appoinments</a></li>
+				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a  href="sendmail.php" style="font-size: 25px; margin: 50px;color: #fff; ">Send Mail</a></li>
+				<li style= "background-color: #2980b9; width: 250px; height: 150px; display: inline-block;"><a href="/pis/index.php?logout='1' "style="font-size: 25px;margin: 50px;color: #fff; " id="logout">Log out</a></li>
+				
+			    
+				
+</ul>
 
 
 <!-- Error Mesage Displaying -->

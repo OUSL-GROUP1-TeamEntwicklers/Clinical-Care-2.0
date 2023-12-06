@@ -1,10 +1,6 @@
 <!-- common function -->
 <?php include('functions.php'); 
 
-// if (!isPatient()) {
-//         $_SESSION['msg'] = "You must log in first";
-//         header('location: ../login_patient.php');
-//     }
 ?>
 
 <style type="text/css" href="css/login.css">

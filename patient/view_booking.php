@@ -113,9 +113,6 @@ if (isset($_POST['view_booking'])) {
         <label style="font-style: normal; font-weight: normal;"><?php echo $checkup_name; ?></label><br>
       <?php endif ?>
 
-      
-      
-
      </div>
     </div>
 	</form>

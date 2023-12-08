@@ -22,7 +22,7 @@
 		<h1 id="head">Sign Up</h1>
 
 	<div class="container">
-		<form id="reg" method="post" action="sign_up.php"  Onsubmit="login.php" >
+		<form id="reg" method="post" action="sign_up.php" >
 		<?php include('../errors.php'); ?>
 		
 			<table >
@@ -46,10 +46,10 @@
 
 				<tr>
 					<td>	
-						<label>Birth Date: </label><br><br><br>
+						<label>Birth Day: </label><br><br><br>
 					</td>
 					<td>
-						<input type="date" name="birth_date" placeholder="Enter birth date" id="name"><br><br><br>		
+						<input type="date" name="birth_date" id="name"><br><br><br>		
 					</td>
 				</tr>
 

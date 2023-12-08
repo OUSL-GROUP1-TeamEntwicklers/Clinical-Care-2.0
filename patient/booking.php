@@ -1,5 +1,5 @@
+<!-- common function -->
 <?php include('functions.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +15,6 @@
 	<?php include('link_css.php'); ?>
 	<?php include('link_js.php'); ?>
 
-
-
 	
 </head>
 <body>
@@ -29,21 +27,19 @@
 		<li><a href="notifications.php">Notifications</a></li>
         <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">Logout</a></li>
         <li>
-				<!-- logged in user information -->
 
+		<!-- logged in user information -->
      		<?php  if (isset($_SESSION['user'])) : ?>
                 <strong><?php echo $_SESSION['user']['user_type']="Patient"; ?></strong>
-
                 <small>
                     <i  style="color: cyan;">(<?php echo ucfirst($_SESSION['user']['fname']); ?>)</i> 
                     <img src="/pis/images/17.png" class="profile_info">
                  </small>
-
             <?php endif ?>
  		</li>
-
       </ul>
     </nav>
+
 
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
@@ -51,20 +47,20 @@
     		echo $_SESSION['message'];
     		unset($_SESSION['message']);
     	?>	
-    	</div>
-    <?php endif ?>
+    	</div> <?php endif ?>
 
+ <!-- Booking Form -->
 <div class="container">
-
 	<h1>Booking</h1>
 
 	<form action="booking.php" method="post" id="frm">
         <?php include('../errors.php'); ?>
-
+		
+		
 		<input type="hidden" name="p_id" value="<?php echo $_SESSION['user']['p_id']; ?>">
 
 		<label>Booking Date</label><br><br>
-		<input type="Date" name="booking_date" placeholder="Enter Booking Date" id="name"><br><br>
+		<input type="Date" name="booking_date" id="name"><br><br>
 
 		<label> Clinic</label><br><br>
 		<?php
@@ -89,16 +85,15 @@
 		<input type="Time" name="selected_time" placeholder="Select a time" id="selected_time"><br><br>
 
 		<label>Reason</label><br><br>
-		<textarea id="test" name="reason"></textarea><br><br>
+		<textarea id="test" placeholder="Type your Reason"  name="reason"></textarea><br><br>
 
-        <!-- <label>Time</label><br><br>
+       <label>Current Time</label><br><br>
         <input type="text" name="time" id="name" readonly value=" <?php
         date_default_timezone_set("Asia/Colombo");
-        echo date("h:i");
-        ?>"><br><br> -->
+        echo date("h:i"); ?>">
+		<br><br>
 
-        
-
+    
 		<input type="submit" name="booking" value="Booking" id="booking">
 	</form>
 

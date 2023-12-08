@@ -78,6 +78,7 @@ if (isset($_POST['create_account'])) {
  
     mysqli_query ($db,"INSERT INTO `patient` (`p_id`,`fname`, `lname`, `birth_date`, `age`, `id_number`, `address_line1`, `address_line2`, `email`, `gender`, `civil_status`, `password`, `date`, `time`) VALUES (NULL, '$fname', '$lname', '$birth_date', '$age', '$id_number', '$address_line1', '$address_line2','$email', '$gender', '$civil_status', '$password', '$date', '$time');");
  
+    //Navigate to login page after registration
     header('location: login_patient.php');
    
  

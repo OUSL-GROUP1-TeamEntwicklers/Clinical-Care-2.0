@@ -1,16 +1,13 @@
 <!-- common function -->
 <?php include('functions.php'); 
-
 ?>
 
 <style type="text/css" href="css/login.css">
-	
 	body{
 	margin: 0;
 	padding: 0;
 	background-image: url('/pis/images/97.jpg');
 	background-size: cover;
-	font-family: sans-serif;
 }
 </style>
 
@@ -22,17 +19,13 @@
 	<link rel="stylesheet" type="text/css" href="/pis/css/all.css">
 </head>
 <body>
-
-
 		<h1 id="head">Sign Up</h1>
 
 	<div class="container">
 		<form id="reg" method="post" action="sign_up.php"  Onsubmit="login.php" >
-
-			<?php include('../errors.php'); ?>
-
-			
-			<table border="0">
+		<?php include('../errors.php'); ?>
+		
+			<table >
 			
 				<tr>
 					<td>
@@ -165,24 +158,18 @@
 					<td>
 						<input type="text" name="time" id="name" readonly value=" <?php
         date_default_timezone_set("Asia/Colombo");
-        echo date("h:i");
-        ?>"><br><br><br>		
+        echo date("h:i");    ?>"><br><br><br>		
 					</td>
 				</tr>
-
-
 			</table>
 			
 			<input type="submit" name="create_account" value="Create account" id="submit" >
-			
 
 			<div id="sign">
 				Having an account? <a href="login_patient.php" id="sign_a"> Log in</a>
 			</div>
 		</form>
 
-		
 	</div>
-
 </body>
 </html>

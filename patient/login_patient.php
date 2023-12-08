@@ -1,13 +1,10 @@
 <?php include('functions.php') ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Login Patient</title>
-	<!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="/pis/css/login.css">
-
 </head>
 <body>
 <br>
@@ -18,7 +15,6 @@
 	</div>
 	<div class="main">
 		<form method="post" action="login_patient.php">
-
 				
 			<span>
 				<i class="fa fa-user" aria-hidden="true"></i>

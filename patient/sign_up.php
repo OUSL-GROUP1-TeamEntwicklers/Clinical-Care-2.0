@@ -2,27 +2,27 @@
 <?php include('functions.php'); 
 ?>
 
-<style type="text/css" href="css/login.css">
-	body{
-	margin: 0;
-	padding: 0;
-	background-image: url('/pis/images/97.jpg');
-	background-size: cover;
-}
-</style>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="/pis/css/admin/sign_up.css">
 	<link rel="stylesheet" type="text/css" href="/pis/css/all.css">
+	<style type="text/css" href="css/login.css">
+	body{
+	margin: 0;
+	padding: 0;
+	background-image: url('/pis/images/97.jpg');
+	background-size: cover;
+}
+
+</style>
 </head>
 <body>
 		<h1 id="head">Sign Up</h1>
 
 	<div class="container">
-		<form id="reg" method="post" action="sign_up.php" >
+		<form id="reg" method="post" >
 		<?php include('../errors.php'); ?>
 		
 			<table >

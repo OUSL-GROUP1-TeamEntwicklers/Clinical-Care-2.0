@@ -81,7 +81,6 @@ if (isset($_POST['create_account'])) {
     //Navigate to login page after registration
     header('location: login_patient.php');
    
- 
 }else{
                         array_push($errors, "Connection errors !");
 }
@@ -104,6 +103,7 @@ if (isset($_POST['sign_btn'])) {
   if (count($errors) == 0) {
     $password = md5($password);
 
+    //Check Password and username
     $query = "SELECT * FROM patient WHERE id_number='$id_number' AND password='$password'";
     $resultss = mysqli_query($db, $query);
     if (mysqli_num_rows($resultss) == 1) {
@@ -128,11 +128,11 @@ if (isset($_POST['sign_btn'])) {
 // Booking
 	if (isset($_POST['booking'])) {
 	// receive all input values from the form
-		$p_id          = ($_POST['p_id']);
-		$booking_date  = ($_POST['booking_date']);
-		$selected_time = ($_POST['selected_time']);
-		$doctor        = ($_POST['doctor']);
-		$reason        = ($_POST['reason']);
+		$p_id          = $_POST['p_id'];
+		$booking_date  = $_POST['booking_date'];
+		$selected_time = $_POST['selected_time'];
+		$doctor        = $_POST['doctor'];
+		$reason        = $_POST['reason'];
 		$approval	   =0;
 		// form validation: ensure that the form is correctly filled
 		if (empty($p_id)) { 
@@ -162,10 +162,13 @@ if (isset($_POST['sign_btn'])) {
 
         //Notifications
 				$message = "You made an appoinment for"."  " .$doctor ."  "." on ". $booking_date ."  " . " at " . $selected_time . " .  " . "  "."You will get a notification when your appoinment is approved mentioning your time slot." ;
-				
+
 				$query2 = "INSERT INTO `notification` (`message`, `p_id`) VALUES ('$message','$p_id')";
+                
+                //run the query
 				mysqli_query($db, $query2);
 
+            //After booking successful msg display
 				$_SESSION['message']  = "New booking is successfully added!!";
 				header('location: /pis/patient/booking.php');
 			}else{
@@ -183,7 +186,7 @@ if (isset($_POST['sign_btn'])) {
           JOIN patient ON booking.p_id = patient.p_id
           WHERE booking.booking_id = $booking_id;
           ");
-
+        //Get value for r variable as a array
           $r = mysqli_fetch_array($record);
           $booking_id=$r['booking_id'];
 		  $fname = $r['fname'];

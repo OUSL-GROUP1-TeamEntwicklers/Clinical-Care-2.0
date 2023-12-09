@@ -19,6 +19,7 @@ $diagnosis="";
 $checkup_name ="";
 $doctor_comment = "";
 
+// If click on view booking button
 if (isset($_POST['view_booking'])) {
 
 	$diagnosis=$_POST['diagnosis'];
@@ -38,8 +39,8 @@ if (isset($_POST['view_booking'])) {
       	<li><a href="booking.php">Home</a></li>
         <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">logout</a></li>
         <li>
-				<!-- logged in user information -->
 
+				<!-- logged in user information -->
      		<?php  if (isset($_SESSION['user'])) : ?>
               <strong><?php echo $_SESSION['user']['user_type']="Patient"; ?></strong>
 
@@ -47,13 +48,12 @@ if (isset($_POST['view_booking'])) {
                 <i  style="color: cyan;">(<?php echo ucfirst($_SESSION['user']['fname']); ?>)</i> 
                 <img src="/pis/images/17.png" class="profile_info">
              </small>
-
         <?php endif ?>
  		</li>
-
       </ul>
     </nav>
 
+    <!-- Display the session messeage -->
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php
@@ -67,11 +67,10 @@ if (isset($_POST['view_booking'])) {
 
 	<h1>Booking Details</h1><br><br>
 
-	<form action="view_appoinment.php" method="post" id="frm">
+	<form action="" method="post" id="frm">
 
     <label style="font-style: normal; font-weight: normal;">Patient Name :</label>
       <label style="font-style: normal; font-weight: normal;"><?php echo $fname; ?>  <?php echo $lname; ?></label><br>
-
     
       <label style="font-style: normal; font-weight: normal;">Booking Date :</label>
       <label style="font-style: normal; font-weight: normal;"><?php echo $booking_date; ?></label><br>

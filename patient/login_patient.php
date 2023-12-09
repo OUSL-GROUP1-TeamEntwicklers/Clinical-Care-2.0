@@ -14,7 +14,7 @@
 		<h2>Patient Login</h2>
 	</div>
 	<div class="main">
-		<form method="post" action="">
+		<form method="post" action="login_patient.php">
 				
 			<span>
 				<i class="fa fa-user" aria-hidden="true"></i>

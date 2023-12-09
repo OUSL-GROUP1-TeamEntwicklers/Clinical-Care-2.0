@@ -1,5 +1,4 @@
 <?php include('functions.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +23,6 @@
         <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">Logout</a></li>
         <li>
 				<!-- logged in user information -->
-
      		<?php  if (isset($_SESSION['user'])) : ?>
                 <strong><?php echo $_SESSION['user']['user_type']="Patient"; ?></strong>
 
@@ -32,13 +30,13 @@
                     <i  style="color: cyan;">(<?php echo ucfirst($_SESSION['user']['fname']); ?>)</i> 
                     <img src="/pis/images/17.png" class="profile_info">
                  </small>
-
             <?php endif ?>
  		</li>
 
       </ul>
     </nav>
 
+<!-- Display the session messeage -->
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php
@@ -50,22 +48,23 @@
 
 <?php
 	$query = "SELECT * FROM scheduleclinic";
+	//run the query in database
 		$results_set = mysqli_query($db, $query);
 ?>
 
 <div class="container">
 <h1 id="head">Available Clinic List</h1>
 
-    <?php if (isset($_SESSION['message'])):?>
+    <!-- <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php
     		echo $_SESSION['message'];
     		unset($_SESSION['message']);
     	?>	
     	</div>
-    <?php endif ?>
+    <?php endif ?> -->
     
-    <div id="s"> <!-- purple div -->
+    <div id="s">
     <table id="allusers" class="table table-striped table-bordered" style="width: 100%">
     	<thead>
     		<tr>
@@ -83,16 +82,14 @@
     		<?php while ($row = mysqli_fetch_array($results_set)) { ?>
     		<tr>
     			<td id = "clinicname"><?php echo $row['clinicname']; ?></td>
-    			<td id="date"><?php echo $row['date']; ?></td> <!-- a refer as text align -->
+    			<td id="date"><?php echo $row['date']; ?></td>
     			<td id="starttime"><?php echo $row['starttime']; ?></td>
 				<td id="endtime"><?php echo $row['endtime']; ?></td>
     			<td id="doctorincharge"><?php echo $row['doctorincharge']; ?></td>
+				<!-- Display in a alert -->
     			<td id ="edit">
     				<a href="booking.php" class="edit_btn" onClick="return confirm('Are you sure you want to make an appoinment?')">Book</a>
     			</td>
-
-    			
-
     		</tr>
     		<?php } ?>
     	</tbody>	

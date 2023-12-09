@@ -40,7 +40,7 @@
       </ul>
     </nav>
 
-
+<!-- Display the session messeage -->
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php
@@ -53,10 +53,10 @@
 <div class="container">
 	<h1>Booking</h1>
 
-	<form action="booking.php" method="post" id="frm">
+	<form action="" method="post" id="frm">
         <?php include('../errors.php'); ?>
 		
-		
+		<!--Get Primary Key P_id from database and hidden from user -->
 		<input type="hidden" name="p_id" value="<?php echo $_SESSION['user']['p_id']; ?>">
 
 		<label>Booking Date</label><br><br>
@@ -65,10 +65,16 @@
 		<label> Clinic</label><br><br>
 		<?php
 			echo '<select id="slt" name="doctor">';
+
 			// Add a default option
 			echo '<option value="" disabled selected>Select an option</option>';
+
+			//Get clinic name by scheduleclinic table
 			$result_clinic = mysqli_query($db,"SELECT clinicname FROM scheduleclinic WHERE doctorincharge IS NOT NULL");
+
+			//The data is available ?
 			if($result_clinic->num_rows > 0){
+				//Get rows one by one by using fetch_assoc function
 				while ($row = $result_clinic->fetch_assoc()) {
 					// Output option for each row
 					echo '<option value="' . $row["clinicname"] . '">' . $row["clinicname"] . '</option>';
@@ -82,7 +88,7 @@
 		<br><br>
 
 		<label>Select a Time</label><br><br>
-		<input type="Time" name="selected_time" placeholder="Select a time" id="selected_time"><br><br>
+		<input type="Time" name="selected_time"  id="selected_time"><br><br>
 
 		<label>Reason</label><br><br>
 		<textarea id="test" placeholder="Type your Reason"  name="reason"></textarea><br><br>
@@ -118,17 +124,21 @@
 
     	<tbody> 
     		<?php 
+			//Take p_id from database
             $p_id = $_SESSION['user']['p_id'];
+			//Run the query for taking values
             $result_A = mysqli_query($db,"SELECT * FROM booking WHERE p_id = $p_id");
+			//Get rows one by one
             while ($row = mysqli_fetch_array($result_A)) { ?> 
-    		<tr>
+    		<tr> 
+				<!-- Displaying the data -->
     			<td><?php echo $row['booking_id']; ?></td>
-    			<td id="a"><?php echo $row['booking_date']; ?></td> <!-- a refer as text align -->
+    			<td id="a"><?php echo $row['booking_date']; ?></td> 
 				<td id="a"><?php echo $row['selected_time']; ?></td>
     			<td id="a"><?php echo $row['reason']; ?></td>
     			<td id="a"><?php echo $row['doctor']; ?></td>
-    			
                 <td>
+					<!-- Display the button approved or not approved -->
                     <?php if ($row['approval']==0): ?>
                         <button type="button" class="btn btn-danger btn-sm">Not Approved</button>
                     <?php else: ?>

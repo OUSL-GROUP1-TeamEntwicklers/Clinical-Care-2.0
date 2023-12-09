@@ -179,12 +179,6 @@ if (isset($_GET['edit_booking'])) {
     </table>
 </div>
 
- <!-- data table (search, show entries etc..) -->
-    <script>
-  	$(document).ready(function() {
-    $('#allusers').DataTable();
-	} );
-	</script>
 
 	<!-- ************************* error massage time out  ********************************** -->
 

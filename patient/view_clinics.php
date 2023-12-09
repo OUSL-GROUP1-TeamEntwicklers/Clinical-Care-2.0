@@ -100,13 +100,6 @@
 </div><br><br><br>
 
 
- <!-- data table (search, show entries etc..) -->
-    <script>
-  	$(document).ready(function() {
-    $('#allusers').DataTable();
-	} );
-	</script>
-
 	<!-- ************************* error massage time out  ********************************** -->
 
 	<script type="text/javascript">

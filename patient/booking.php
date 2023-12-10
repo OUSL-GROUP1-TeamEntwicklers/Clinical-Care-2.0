@@ -162,7 +162,6 @@
     			<td>
     				<a href="edit_booking.php?edit_booking=<?php echo $row['booking_id']; ?>" class="btn btn-primary btn-sm" ><i class="fas fa-eye"></i>EDIT</a>
     			</td>
-
     		</tr>
     		<?php } ?>
     	</tbody>	
@@ -184,6 +183,5 @@
 	 
 	});
 	</script>
-
 </body>
 </html>

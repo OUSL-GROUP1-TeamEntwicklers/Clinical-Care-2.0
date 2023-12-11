@@ -55,14 +55,6 @@
 <div class="container">
 <h1 id="head">Available Clinic List</h1>
 
-    <!-- <?php if (isset($_SESSION['message'])):?>
-    	<div class="msg">
-    	<?php
-    		echo $_SESSION['message'];
-    		unset($_SESSION['message']);
-    	?>	
-    	</div>
-    <?php endif ?> -->
     
     <div id="s">
     <table id="allusers" class="table table-striped table-bordered" style="width: 100%">

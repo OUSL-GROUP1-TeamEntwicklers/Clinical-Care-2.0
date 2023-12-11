@@ -98,19 +98,7 @@ if (isset($_POST['view_booking'])) {
         <label style="font-style: normal; font-weight: normal;"><?php echo $status; ?></label><br>
       <?php endif ?>
 
-      <label style="font-style: normal; font-weight: normal;">Diagnosis :</label>
-      <?php if ($diagnosis==""): ?>
-        <label style="font-style: normal; font-weight: normal;"> <b>Pending</b> </label><br>
-      <?php else: ?>
-        <label style="font-style: normal; font-weight: normal;"><?php echo $diagnosis; ?></label><br>
-      <?php endif ?>
 
-      <label style="font-style: normal; font-weight: normal;">Checkups :</label>
-      <?php if ($checkup_name==""): ?>
-        <label style="font-style: normal; font-weight: normal;"> <b>Pending</b> </label><br>
-      <?php else: ?>
-        <label style="font-style: normal; font-weight: normal;"><?php echo $checkup_name; ?></label><br>
-      <?php endif ?>
 
      </div>
     </div>

@@ -108,7 +108,7 @@ if (isset($_POST['sign_btn'])) {
     $resultss = mysqli_query($db, $query);
     if (mysqli_num_rows($resultss) == 1) {
 
-     // check if user is admin or user
+     
         $logged_in_user = mysqli_fetch_assoc($resultss);
 
     
@@ -213,7 +213,7 @@ if (isset($_POST['sign_btn'])) {
 		if (empty($selected_time)) {
 			array_push($errors, "Add the Time");	
 		}
-		if (empty($reason)) {
+		if (empty($reason)) { 
 			array_push($errors, "Add the Reason");	
 		}
 

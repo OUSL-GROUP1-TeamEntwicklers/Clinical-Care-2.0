@@ -50,7 +50,7 @@
     <?php endif ?>
 
 <div class="container">
-	<h1>Notifications</h1>
+	<h1><b>Notifications</b></h1>
 </div><br><br><br>
 
 <div id="s">

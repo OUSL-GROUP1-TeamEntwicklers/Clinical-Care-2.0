@@ -169,7 +169,7 @@
 </div>
 
 
-	<!-- ************************* error massage time out  ********************************** -->
+	<!--  message time out -->
 
 	<script type="text/javascript">
 

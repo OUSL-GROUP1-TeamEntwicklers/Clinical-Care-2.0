@@ -176,7 +176,7 @@ if (isset($_POST['sign_btn'])) {
 			}
 		}
 
-//Booking View ************************************************************************************************
+//View Booking  ************************************************************************************************
 
 		if (isset($_GET['view'])) {
           $booking_id = $_GET['view'];
@@ -198,7 +198,7 @@ if (isset($_POST['sign_btn'])) {
           $approval_time=$r['approval_time'];
           $status=$r['status'];
 }
-// updateBooking
+// UpdateBooking
 	if (isset($_POST['bookig_update'])) {
 
 		$booking_id     =$_POST['booking_id'];

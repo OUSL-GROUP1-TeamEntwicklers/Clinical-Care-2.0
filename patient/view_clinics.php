@@ -46,16 +46,9 @@
     	</div>
     <?php endif ?>
 
-<?php
-	$query = "SELECT * FROM scheduleclinic";
-	//run the query in database
-		$results_set = mysqli_query($db, $query);
-?>
-
 <div class="container">
 <h1 id="head">Available Clinic List</h1>
 
-    
     <div id="s">
     <table id="allusers" class="table table-striped table-bordered" style="width: 100%">
     	<thead>
@@ -71,6 +64,13 @@
     	</thead>
 
     	<tbody> 
+
+<?php
+	$query = "SELECT * FROM scheduleclinic";
+
+	//run the query in database
+		$results_set = mysqli_query($db, $query); ?>
+
     		<?php while ($row = mysqli_fetch_array($results_set)) { ?>
     		<tr>
     			<td id = "clinicname"><?php echo $row['clinicname']; ?></td>
@@ -92,7 +92,7 @@
 </div><br><br><br>
 
 
-	<!-- ************************* error massage time out  ********************************** -->
+	<!--  message time out -->
 
 	<script type="text/javascript">
 

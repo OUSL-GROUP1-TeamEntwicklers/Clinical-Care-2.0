@@ -14,22 +14,6 @@
 	<?php include('link_css.php'); ?>
 	<?php include('link_js.php'); ?>
 
-<?php 
-$diagnosis="";
-$checkup_name ="";
-$doctor_comment = "";
-
-// If click on view booking button
-if (isset($_POST['view_booking'])) {
-
-	$diagnosis=$_POST['diagnosis'];
-	$checkup_name=$_POST['checkup_name'];
-	$doctor_comment=$_POST['doctor_comment'];
-	
-}
-
-?>
-
 </head>
 <body>
 
@@ -105,7 +89,7 @@ if (isset($_POST['view_booking'])) {
 	</form>
 
 
-	<!-- ************************* error massage time out  ********************************** -->
+	<!--  message time out -->
 
 	<script type="text/javascript">
 

@@ -143,11 +143,11 @@ if (isset($_GET['edit_booking'])) {
             while ($row = mysqli_fetch_array($result_A)) { ?> 
     		<tr>
     			<td><?php echo $row['booking_id']; ?></td>
-    			<td id="a"><?php echo $row['booking_date']; ?></td> <!-- a refer as text align -->
+    			<td id="a"><?php echo $row['booking_date']; ?></td> 
 				<td id="a"><?php echo $row['selected_time']; ?></td>
     			<td id="a"><?php echo $row['reason']; ?></td>
     			<td id="a"><?php echo $row['doctor']; ?></td>
-    			
+    			<!-- Display the button approved or not approved -->
                 <td>
                     <?php if ($row['approval']==0): ?>
                         <button type="button" class="btn btn-danger btn-sm">Not Approval</button>
@@ -180,7 +180,7 @@ if (isset($_GET['edit_booking'])) {
 </div>
 
 
-	<!-- ************************* error massage time out  ********************************** -->
+	<!-- message time out -->
 
 	<script type="text/javascript">
 

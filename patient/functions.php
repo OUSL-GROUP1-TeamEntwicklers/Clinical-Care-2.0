@@ -103,7 +103,7 @@ if (isset($_POST['sign_btn'])) {
   if (count($errors) == 0) {
     $password = md5($password);
 
-    //Check Password and username
+    //Check Password and id_number
     $query = "SELECT * FROM patient WHERE id_number='$id_number' AND password='$password'";
     $resultss = mysqli_query($db, $query);
     if (mysqli_num_rows($resultss) == 1) {
@@ -123,9 +123,9 @@ if (isset($_POST['sign_btn'])) {
     }
   }
 }
-// ***************************************************************************************************************
-  // 
-// Booking
+
+ // Booking
+
 	if (isset($_POST['booking'])) {
 	// receive all input values from the form
 		$p_id          = $_POST['p_id'];
@@ -154,13 +154,13 @@ if (isset($_POST['sign_btn'])) {
 		if (empty($reason)) { 
 			array_push($errors, "Reason is required"); 
 		}
-		// booking item if there are no errors in the form
+		// Booking item if there are no errors in the form and insert data
 		if (count($errors) == 0) {				
 				$query = "INSERT INTO booking (`p_id`,`booking_date`,`selected_time`,`doctor`,`reason`,`approval`) 
 						  VALUES('$p_id','$booking_date','$selected_time','$doctor','$reason','$approval')";
 				mysqli_query($db, $query);
 
-        //Notifications
+        // Create Notifications
 				$message = "You made an appoinment for"."  " .$doctor ."  "." on ". $booking_date ."  " . " at " . $selected_time . " .  " . "  "."You will get a notification when your appoinment is approved mentioning your time slot." ;
 
 				$query2 = "INSERT INTO `notification` (`message`, `p_id`) VALUES ('$message','$p_id')";

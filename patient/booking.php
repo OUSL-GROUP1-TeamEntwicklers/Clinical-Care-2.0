@@ -40,7 +40,7 @@
       </ul>
     </nav>
 
-<!-- Display the session messeage -->
+
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php
@@ -49,7 +49,7 @@
     	?>	
     	</div> <?php endif ?>
 
- <!-- Booking Form -->
+
 <div class="container">
 	<h1>Booking</h1>
 
@@ -81,7 +81,7 @@
 				}			
 				echo '</select>';
 			} else {
-				// If no options found
+				
 				echo "No options available";
 			}
 		?>
@@ -124,9 +124,9 @@
 
     	<tbody> 
     		<?php 
-			//Take p_id from database
+			
             $p_id = $_SESSION['user']['p_id'];
-			//Run the query for taking values
+			
             $result_A = mysqli_query($db,"SELECT * FROM booking WHERE p_id = $p_id");
 			//Get rows one by one
             while ($row = mysqli_fetch_array($result_A)) { ?> 

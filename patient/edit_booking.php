@@ -137,7 +137,7 @@ if (isset($_GET['edit_booking'])) {
     	</thead>
 
     	<tbody> 
-    		<?php 
+    		<?php //Take p_id
             $p_id = $_SESSION['user']['p_id'];
             $result_A = mysqli_query($db,"SELECT * FROM booking WHERE p_id = $p_id");
             while ($row = mysqli_fetch_array($result_A)) { ?> 

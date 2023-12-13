@@ -27,6 +27,7 @@ $reason = "";
 $doctorincharge = "";
 $diagnosis="";
 $checkup_name ="";
+$booking_id ="";
 
 
 if (isset($_POST['view_appoinment'])) {
@@ -40,6 +41,7 @@ if (isset($_POST['view_appoinment'])) {
 	$diagnosis=$_POST['diagnosis'];
 	$checkup_name=$_POST['checkup_name'];
 	$doctor_comment=$_POST['doctor_comment'];
+	$booking_id = $_POST['booking_id'];
 	
 }
 
@@ -79,7 +81,7 @@ if (isset($_POST['view_appoinment'])) {
 
     <?php
 	//$query = ("SELECT  * FROM booking ");
-	$query = ("SELECT   p.p_id,    p.fname,   b.doctor,    b.booking_date,   b.reason,   s.doctorincharge FROM    patient p JOIN   booking b ON p.p_id = b.p_id LEFT JOIN   scheduleclinic s ON b.doctor = s.clinicname");
+	$query = ("SELECT   p.p_id,    p.fname,  b.booking_id,  b.doctor,  b.approval,  b.booking_date,   b.reason,   s.doctorincharge FROM    patient p JOIN   booking b ON p.p_id = b.p_id LEFT JOIN   scheduleclinic s ON b.doctor = s.clinicname WHERE b.approval= '0'");
 		$results_set = mysqli_query($db, $query);
 ?>
 
@@ -91,6 +93,7 @@ if (isset($_POST['view_appoinment'])) {
     <table id="allusers" class="table table-striped table-bordered" style="width: 100%">
     	<thead>
     		<tr>
+				<th id="booking_id">Booking ID</th>
                 <th id="p_id">Patient ID</th>
                 <th id="patientname">Patient Name</th>
     			<th id="clinicname">Clinic Name</th>
@@ -106,6 +109,7 @@ if (isset($_POST['view_appoinment'])) {
     	<tbody> 
     		<?php while ($row = mysqli_fetch_array($results_set)) { ?>
     		<tr>
+				<td id ="booking_id"><?php echo $row['booking_id']; ?></td>
                 <td id ="p_id"><?php echo $row['p_id']; ?></td>
                 <td id ="fname"><?php echo $row['fname']; ?></td>
     			<td id ="clinicname"><?php echo $row['doctor']; ?></td>
@@ -113,7 +117,7 @@ if (isset($_POST['view_appoinment'])) {
     			<td id="reason"><?php echo $row['reason']; ?></td>
     			<td id="doctorincharge"><?php echo $row['doctorincharge']; ?></td>
     			<td id ="edit">
-				<a href="approveappoinment.php?approve_appoinment=<?php echo $row['p_id']; ?>" class="edit_btn" >Approve</a>
+				<a href="approveappoinment.php?approve_appoinment=<?php echo $row['booking_id']; ?>" class="edit_btn" >Approve</a>
     			</td>
                 
 

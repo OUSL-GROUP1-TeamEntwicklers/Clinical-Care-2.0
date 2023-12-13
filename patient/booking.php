@@ -40,7 +40,7 @@
       </ul>
     </nav>
 
-
+	<!-- session messeage  -->
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php

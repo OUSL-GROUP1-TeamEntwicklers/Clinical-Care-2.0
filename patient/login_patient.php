@@ -15,7 +15,7 @@
 	</div>
 	<div class="main">
 		<form method="post" action="login_patient.php">
-				
+		<?php include('../errors.php'); ?>
 			<span>
 				<i class="fa fa-user" aria-hidden="true"></i>
 				<input type="text" placeholder="Enter your id number" name="id_number">

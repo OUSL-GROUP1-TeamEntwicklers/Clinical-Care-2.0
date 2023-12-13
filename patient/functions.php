@@ -119,7 +119,7 @@ if (isset($_POST['sign_btn'])) {
           header('location: booking.php');
 
       }else {
-      array_push($errors, "Wrong username/password combination");
+      array_push($errors, "Wrong id_number/password combination");
     }
   }
 }

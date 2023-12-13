@@ -3,7 +3,7 @@
     //If click on edit button
 if (isset($_GET['edit_booking'])) {
     $booking_id = $_GET['edit_booking'];
-    $edit_booking = true;
+    
 
 	//Get data from database for using booking_id
     $record_B = mysqli_query($db, "SELECT * FROM booking WHERE booking_id=$booking_id"); 

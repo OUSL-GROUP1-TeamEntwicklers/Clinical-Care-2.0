@@ -82,8 +82,6 @@
         <label style="font-style: normal; font-weight: normal;"><?php echo $status; ?></label><br>
       <?php endif ?>
 
-
-
      </div>
     </div>
 	</form>

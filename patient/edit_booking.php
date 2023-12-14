@@ -1,15 +1,12 @@
 <?php include('functions.php');
     
-    $booking_date = '';
-    $doctor = '';
-    $reason = '';
-	$selected_time = '';
-    
+    //If click on edit button
 if (isset($_GET['edit_booking'])) {
     $booking_id = $_GET['edit_booking'];
-    $edit_booking = true;
-    $record_B = mysqli_query($db, "SELECT * FROM booking WHERE booking_id=$booking_id"); 
+    
 
+	//Get data from database for using booking_id
+    $record_B = mysqli_query($db, "SELECT * FROM booking WHERE booking_id=$booking_id"); 
     $record = mysqli_fetch_array($record_B);
     $booking_date = $record['booking_date'];
 	$selected_time = $record['selected_time'];
@@ -40,7 +37,6 @@ if (isset($_GET['edit_booking'])) {
         <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">logout</a></li>
         <li>
 				<!-- logged in user information -->
-
      		<?php  if (isset($_SESSION['user'])) : ?>
                 <strong><?php echo $_SESSION['user']['user_type']="Patient"; ?></strong>
 
@@ -48,13 +44,13 @@ if (isset($_GET['edit_booking'])) {
                     <i  style="color: cyan;">(<?php echo ucfirst($_SESSION['user']['fname']); ?>)</i> 
                     <img src="/pis/images/17.png" class="profile_info">
                  </small>
-
             <?php endif ?>
  		</li>
 
       </ul>
     </nav>
 
+	<!-- Display the session messeage -->
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php
@@ -65,16 +61,15 @@ if (isset($_GET['edit_booking'])) {
     <?php endif ?>
 
 <div class="container">
-
 	<h1>Booking</h1>
-
-	<form action="booking.php" method="post" id="frm">
+	<form action="" method="post" id="frm">
+			<!--Get Primary Key P_id from database and hidden from user -->
 		<input type="hidden" name="p_id" value="<?php echo $_SESSION['user']['p_id']; ?>">
 
         <input type="hidden" name="booking_id" value="<?php echo $booking_id; ?>">
 
 		<label>Booking Date</label><br><br>
-		<input type="Date" name="booking_date" placeholder="Enter Booking Date" id="name" value="<?php echo $booking_date; ?>"><br><br>
+		<input type="Date" name="booking_date" id="name" value="<?php echo $booking_date; ?>"><br><br>
 
 		<label>Clinic</label><br><br>
 		<select id="slt" name="doctor">
@@ -115,18 +110,10 @@ if (isset($_GET['edit_booking'])) {
 		<br><br>
 
 		<label>Selected Time</label><br><br>
-		<input type="Time" name="selected_time" placeholder="Select a time" id="name" value="<?php echo $selected_time; ?>"><br><br>
+		<input type="Time" name="selected_time" id="name" value="<?php echo $selected_time; ?>"><br><br>
 
 		<label>Reason</label><br><br>
 		<textarea id="test" name="reason" value="<?php echo $reason; ?>"><?php echo $reason; ?></textarea><br><br>
-
-        <!-- <label>Time</label><br><br>
-        <input type="text" name="approval_time" id="name" readonly value=" <?php
-        date_default_timezone_set("Asia/Colombo");
-        echo date("h:i");
-        ?>"><br><br>
- -->
-        
 
 		<input type="submit" name="bookig_update" value="Booking Update" id="booking">
 	</form>
@@ -150,17 +137,17 @@ if (isset($_GET['edit_booking'])) {
     	</thead>
 
     	<tbody> 
-    		<?php 
+    		<?php //Take p_id
             $p_id = $_SESSION['user']['p_id'];
             $result_A = mysqli_query($db,"SELECT * FROM booking WHERE p_id = $p_id");
             while ($row = mysqli_fetch_array($result_A)) { ?> 
     		<tr>
     			<td><?php echo $row['booking_id']; ?></td>
-    			<td id="a"><?php echo $row['booking_date']; ?></td> <!-- a refer as text align -->
+    			<td id="a"><?php echo $row['booking_date']; ?></td> 
 				<td id="a"><?php echo $row['selected_time']; ?></td>
     			<td id="a"><?php echo $row['reason']; ?></td>
     			<td id="a"><?php echo $row['doctor']; ?></td>
-    			
+    			<!-- Display the button approved or not approved -->
                 <td>
                     <?php if ($row['approval']==0): ?>
                         <button type="button" class="btn btn-danger btn-sm">Not Approval</button>
@@ -192,14 +179,8 @@ if (isset($_GET['edit_booking'])) {
     </table>
 </div>
 
- <!-- data table (search, show entries etc..) -->
-    <script>
-  	$(document).ready(function() {
-    $('#allusers').DataTable();
-	} );
-	</script>
 
-	<!-- ************************* error massage time out  ********************************** -->
+	<!-- message time out -->
 
 	<script type="text/javascript">
 

@@ -1,9 +1,4 @@
 <?php include('functions.php');
-
-// if (!isPatient()) {
-//         $_SESSION['msg'] = "You must log in first";
-//         header('location: ../booking.php');
-//     }
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +14,6 @@
 	<?php include('link_css.php'); ?>
 	<?php include('link_js.php'); ?>
 
-
-
-	
 </head>
 <body>
 
@@ -37,7 +29,6 @@
 
      		<?php  if (isset($_SESSION['user'])) : ?>
                 <strong><?php echo $_SESSION['user']['user_type']="Patient"; ?></strong>
-
                 <small>
                     <i  style="color: cyan;">(<?php echo ucfirst($_SESSION['user']['fname']); ?>)</i> 
                     <img src="/pis/images/17.png" class="profile_info">
@@ -45,10 +36,10 @@
 
             <?php endif ?>
  		</li>
-
       </ul>
     </nav>
 
+<!-- Display the session messeage -->	
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php
@@ -59,38 +50,30 @@
     <?php endif ?>
 
 <div class="container">
-
-	
+	<h1><b>Notifications</b></h1>
 </div><br><br><br>
 
 <div id="s">
 <table class="table table-striped table-bordered" style="width: 100%">
     	<thead>
     		<tr>
-    			<th>Notifications</th>
+    			<!-- <th>Notifications</th> -->
     			
     		</tr>
     	</thead>
 
     	<tbody> 
     		<?php 
+			//P_id - Notifications
             $p_id = $_SESSION['user']['p_id'];
-            $result_B = mysqli_query($db,"SELECT * FROM `notification` WHERE p_id IS NULL OR p_id = $p_id");
+            $result_B = mysqli_query($db,"SELECT * FROM `notification` WHERE p_id IS NULL OR p_id = $p_id ORDER BY recipient_id DESC");
             while ($row = mysqli_fetch_array($result_B)) { ?> 
     		<tr>
     			<td><?php echo $row['message']; ?></td>
-    			
-            
-
-    			
-
     		</tr>
     		<?php } ?>
     	</tbody>	
     </table>
 </div>
-
- 
-
 </body>
 </html>

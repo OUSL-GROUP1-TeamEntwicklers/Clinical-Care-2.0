@@ -14,21 +14,6 @@
 	<?php include('link_css.php'); ?>
 	<?php include('link_js.php'); ?>
 
-<?php 
-$diagnosis="";
-$checkup_name ="";
-$doctor_comment = "";
-
-if (isset($_POST['view_booking'])) {
-
-	$diagnosis=$_POST['diagnosis'];
-	$checkup_name=$_POST['checkup_name'];
-	$doctor_comment=$_POST['doctor_comment'];
-	
-}
-
-?>
-
 </head>
 <body>
 
@@ -38,8 +23,8 @@ if (isset($_POST['view_booking'])) {
       	<li><a href="booking.php">Home</a></li>
         <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">logout</a></li>
         <li>
-				<!-- logged in user information -->
 
+				<!-- logged in user information -->
      		<?php  if (isset($_SESSION['user'])) : ?>
               <strong><?php echo $_SESSION['user']['user_type']="Patient"; ?></strong>
 
@@ -47,13 +32,12 @@ if (isset($_POST['view_booking'])) {
                 <i  style="color: cyan;">(<?php echo ucfirst($_SESSION['user']['fname']); ?>)</i> 
                 <img src="/pis/images/17.png" class="profile_info">
              </small>
-
         <?php endif ?>
  		</li>
-
       </ul>
     </nav>
 
+    <!-- Display the session messeage -->
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php
@@ -67,11 +51,10 @@ if (isset($_POST['view_booking'])) {
 
 	<h1>Booking Details</h1><br><br>
 
-	<form action="view_appoinment.php" method="post" id="frm">
+	<form action="" method="post" id="frm">
 
-    <label style="font-style: normal; font-weight: normal;">Patient Name :</label>
-      <label style="font-style: normal; font-weight: normal;"><?php echo $booking_date; ?></label><br>
-
+      <label style="font-style: normal; font-weight: normal;">Patient Name :</label>
+      <label style="font-style: normal; font-weight: normal;"><?php echo $fname; ?>  <?php echo $lname; ?></label><br>
     
       <label style="font-style: normal; font-weight: normal;">Booking Date :</label>
       <label style="font-style: normal; font-weight: normal;"><?php echo $booking_date; ?></label><br>
@@ -93,42 +76,18 @@ if (isset($_POST['view_booking'])) {
       <?php endif ?>
 
       <label style="font-style: normal; font-weight: normal;">Status :</label>
-      <?php if ($status==0): ?>
+      <?php if ($status==""): ?>
         <label style="font-style: normal; font-weight: normal;"> <b>Pending</b> </label><br>
       <?php else: ?>
         <label style="font-style: normal; font-weight: normal;"><?php echo $status; ?></label><br>
       <?php endif ?>
-
-      <label style="font-style: normal; font-weight: normal;">Diagnosis :</label>
-      <?php if ($diagnosis==""): ?>
-        <label style="font-style: normal; font-weight: normal;"> <b>Pending</b> </label><br>
-      <?php else: ?>
-        <label style="font-style: normal; font-weight: normal;"><?php echo $diagnosis; ?></label><br>
-      <?php endif ?>
-
-      <label style="font-style: normal; font-weight: normal;">Checkups :</label>
-      <?php if ($checkup_name==""): ?>
-        <label style="font-style: normal; font-weight: normal;"> <b>Pending</b> </label><br>
-      <?php else: ?>
-        <label style="font-style: normal; font-weight: normal;"><?php echo $checkup_name; ?></label><br>
-      <?php endif ?>
-
-      
-      
 
      </div>
     </div>
 	</form>
 
 
- <!-- data table (search, show entries etc..) -->
-    <script>
-  	$(document).ready(function() {
-    $('#allusers').DataTable();
-	} );
-	</script>
-
-	<!-- ************************* error massage time out  ********************************** -->
+	<!--  message time out -->
 
 	<script type="text/javascript">
 

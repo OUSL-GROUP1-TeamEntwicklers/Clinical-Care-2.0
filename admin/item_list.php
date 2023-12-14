@@ -85,7 +85,7 @@ if (!isAdmin()) {
 				<td id="endtime"><?php echo $row['endtime']; ?></td>
     			<td id="doctorincharge"><?php echo $row['doctorincharge']; ?></td>
     			<td id ="update_clinic">
-    				<a href="update_clinic.php?editclinic=<?php echo $row['clinicid']; ?>" class="edit_btn" onClick="return confirm('Are you sure you want to Update this clinic?')">Edit</a>
+    				<a href="update_clinic.php?edit=<?php echo $row['clinicid']; ?>" class="edit_btn" onClick="return confirm('Are you sure you want to Update this clinic?')">Edit</a>
     			</td>
 
     			<td id = "delete">

@@ -13,7 +13,7 @@ if (!isAdmin()) {
 
 <head>
 
-	<title>User List</title>
+	<title>Staff Member List</title>
 
 	<link rel="stylesheet" type="text/css" href="/pis/css/admin/user_list.css">
     <link rel="stylesheet" type="text/css" href="/pis/css/all.css">
@@ -26,13 +26,13 @@ if (!isAdmin()) {
 
 	<nav>
 
-	    <label id="title">| User List</label>
+	    <label id="title">| Staff List</label>
 	      <ul>
 	        <li><a href="admin_home.php">ADMIN HOME</a></li>
-	        <li><a href="add_user.php">ADD USER</a></li>
-	        <li><a class="active" href="user_list.php">VIEW USER</a></li>
+	        <li><a href="add_user.php">ADD STAFF</a></li>
+	        <li><a class="active" href="user_list.php">VIEW STAFF</a></li>
 
-	        <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">logout</a></li>
+	        <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">Logout</a></li>
             
 	        <li>
                 <!-- logged in user information -->
@@ -51,7 +51,7 @@ if (!isAdmin()) {
       </ul>
     </nav>
 
-    <h1 id="head">All User List</h1>
+    <h1 id="head">All Staff List</h1>
 
     <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">

@@ -1,22 +1,6 @@
 <!-- common function -->
 <?php include('functions.php'); 
-
-// if (!isPatient()) {
-//         $_SESSION['msg'] = "You must log in first";
-//         header('location: ../login_patient.php');
-//     }
 ?>
-
-<style type="text/css" href="css/login.css">
-	
-	body{
-	margin: 0;
-	padding: 0;
-	background-image: url('/pis/images/97.jpg');
-	background-size: cover;
-	font-family: sans-serif;
-}
-</style>
 
 <!DOCTYPE html>
 <html>
@@ -24,19 +8,24 @@
 	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="/pis/css/admin/sign_up.css">
 	<link rel="stylesheet" type="text/css" href="/pis/css/all.css">
+	<style type="text/css" href="css/login.css">
+	body{
+	margin: 0;
+	padding: 0;
+	background-image: url('/pis/images/97.jpg');
+	background-size: cover;
+}
+
+</style>
 </head>
 <body>
-
-
 		<h1 id="head">Sign Up</h1>
 
 	<div class="container">
-		<form id="reg" method="post" action="sign_up.php"  Onsubmit="login.php" >
-
-			<?php include('../errors.php'); ?>
-
-			
-			<table border="0">
+		<form id="reg" method="post" >
+		<?php include('../errors.php'); ?>
+		
+			<table >
 			
 				<tr>
 					<td>
@@ -57,10 +46,10 @@
 
 				<tr>
 					<td>	
-						<label>Birth Date: </label><br><br><br>
+						<label>Birth Day: </label><br><br><br>
 					</td>
 					<td>
-						<input type="date" name="birth_date" placeholder="Enter birth date" id="name"><br><br><br>		
+						<input type="date" name="birth_date" id="name"><br><br><br>		
 					</td>
 				</tr>
 
@@ -101,13 +90,13 @@
 				</tr>
 
 				<tr>
-					<td>	
-						<label>Contact No: </label><br><br><br>
-					</td>
-					<td>
-						<input type="text" name="contact_no" placeholder="000-000-0000" id="name"><br><br><br>		
-					</td>
-				</tr>
+                    <td>    
+                        <label>Email: </label><br><br><br>
+                    </td>
+                    <td>
+                    <input type="email" name="email" placeholder="Enter Your Email" id="name"><br><br><br>  
+                    </td>
+                </tr>
 
 				<tr>
 					<td>
@@ -169,24 +158,18 @@
 					<td>
 						<input type="text" name="time" id="name" readonly value=" <?php
         date_default_timezone_set("Asia/Colombo");
-        echo date("h:i");
-        ?>"><br><br><br>		
+        echo date("h:i");    ?>"><br><br><br>		
 					</td>
 				</tr>
-
-
 			</table>
 			
 			<input type="submit" name="create_account" value="Create account" id="submit" >
-			
 
 			<div id="sign">
 				Having an account? <a href="login_patient.php" id="sign_a"> Log in</a>
 			</div>
 		</form>
 
-		
 	</div>
-
 </body>
 </html>

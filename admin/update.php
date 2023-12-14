@@ -36,7 +36,7 @@ if (isset($_GET['edit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit User</title>
+	<title>Edit Staff</title>
 	<link rel="stylesheet" type="text/css" href="/pis/css/admin/add_user.css">
 	<link rel="stylesheet" type="text/css" href="/pis/css/all.css">
 
@@ -45,11 +45,11 @@ if (isset($_GET['edit'])) {
 
 
 	<nav>
-	    <label id="title">| Edit User</label>
+	    <label id="title">| Edit Staff Member</label>
       <ul>
         <li><a href="admin_home.php">ADMIN HOME</a></li>
-        <li><a href="add_user.php">ADD USER</a></li>
-        <li><a class="active" href="user_list.php">EDIT USER</a></li>
+        <li><a href="add_user.php">ADD STAFF</a></li>
+        <li><a class="active" href="user_list.php">EDIT STAFF</a></li>
 
         <li><a href="/pis/index.php?logout='1' "style="font-size:14px;" id="logout">logout</a></li>
         <li>
@@ -70,7 +70,7 @@ if (isset($_GET['edit'])) {
     </nav>
 
 
-		<h1 id="head">Edit User</h1>
+		<h1 id="head">Edit Staff Member</h1>
 
 	<div class="container">
 		<form id="reg" method="post" action="update.php">

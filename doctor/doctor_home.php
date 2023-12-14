@@ -74,7 +74,7 @@ if (!isDoctor()) {
     		<tr>
     			<th>Patient Name</th>
     			<th id="a">ID Number</th>
-    			<th id="a">Contact No</th>
+    			<th id="a">Email</th>
     			
     			<th colspan="2"id="a">Diagnosis</th>
                 <th colspan="2" id="a">Checkup</th>
@@ -90,7 +90,7 @@ if (!isDoctor()) {
     		<tr>
     			<td style="text-align: left;"><?php echo $row['fname']," ", $row['lname']; ?></td> <!-- a refer as text align -->
     			<td id="a"><?php echo $row['id_number']; ?></td>
-    			<td id="a"><?php echo $row['contact_no']; ?></td>
+    			<td id="a"><?php echo $row['email']; ?></td>
     			
 
                 <td align="center">

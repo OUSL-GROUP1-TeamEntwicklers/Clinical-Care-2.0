@@ -53,7 +53,7 @@
 
 	<form action="" method="post" id="frm">
 
-    <label style="font-style: normal; font-weight: normal;">Patient Name :</label>
+      <label style="font-style: normal; font-weight: normal;">Patient Name :</label>
       <label style="font-style: normal; font-weight: normal;"><?php echo $fname; ?>  <?php echo $lname; ?></label><br>
     
       <label style="font-style: normal; font-weight: normal;">Booking Date :</label>

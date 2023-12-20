@@ -170,7 +170,7 @@ if (isset($_POST['sign_btn'])) {
 
             //After booking successful msg display
 				$_SESSION['message']  = "New booking is successfully added!!";
-				header('location: /pis/patient/booking.php');
+				// header('location: /pis/patient/booking.php');
 			}else{
 						array_push($errors, "Connection errors !");		
 			}

@@ -53,7 +53,7 @@
 <div class="container">
 	<h1>Booking</h1>
 
-	<form action="" method="post" id="frm">
+	<form action="booking.php" method="post" id="frm">
         <?php include('../errors.php'); ?>
 		
 		<!--Get Primary Key P_id from database and hidden from user -->

@@ -36,15 +36,6 @@
       </ul>
     </nav>
 
-<!-- Display the session messeage -->
-<?php if (isset($_SESSION['message'])):?>
-    	<div class="msg">
-    	<?php
-    		echo $_SESSION['message'];
-    		unset($_SESSION['message']);
-    	?>	
-    	</div>
-    <?php endif ?>
 
 <div class="container">
 <h1 id="head">Available Clinic List</h1>
@@ -91,21 +82,6 @@
 
 </div><br><br><br>
 
-
-	<!--  message time out -->
-
-	<script type="text/javascript">
-
-	$(document).ready(function () {
-	 
-	window.setTimeout(function() {
-	    $(".msg").fadeTo(1000, 0).slideUp(1000, function(){
-	        $(this).remove();
-	    });
-	}, 5000);
-	 
-	});
-	</script>
 
 </body>
 </html>

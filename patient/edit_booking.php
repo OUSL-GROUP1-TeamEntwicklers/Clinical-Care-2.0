@@ -50,15 +50,6 @@ if (isset($_GET['edit_booking'])) {
       </ul>
     </nav>
 
-	<!-- Display the session messeage -->
-<?php if (isset($_SESSION['message'])):?>
-    	<div class="msg">
-    	<?php
-    		echo $_SESSION['message'];
-    		unset($_SESSION['message']);
-    	?>	
-    	</div>
-    <?php endif ?>
 
 <div class="container">
 	<h1>Booking</h1>
@@ -164,7 +155,6 @@ if (isset($_GET['edit_booking'])) {
                     <?php endif ?>
                 </td>
             
-
     			<td>
     				<a href="view_booking.php?view=<?php echo $row['booking_id']; ?>" class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i>VIEW</a>
     			</td>
@@ -178,22 +168,6 @@ if (isset($_GET['edit_booking'])) {
     	</tbody>	
     </table>
 </div>
-
-
-	<!-- message time out -->
-
-	<script type="text/javascript">
-
-	$(document).ready(function () {
-	 
-	window.setTimeout(function() {
-	    $(".msg").fadeTo(1000, 0).slideUp(1000, function(){
-	        $(this).remove();
-	    });
-	}, 5000);
-	 
-	});
-	</script>
 
 </body>
 </html>

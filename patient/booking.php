@@ -1,5 +1,4 @@
-<!-- common function -->
-<?php include('functions.php');
+<?php include ('functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +39,7 @@
       </ul>
     </nav>
 
-	<!-- session messeage  -->
+	
 <?php if (isset($_SESSION['message'])):?>
     	<div class="msg">
     	<?php
@@ -53,7 +52,7 @@
 <div class="container">
 	<h1>Booking</h1>
 
-	<form action="" method="post" id="frm">
+	<form action="booking.php" method="post" id="frm">
         <?php include('../errors.php'); ?>
 		
 		<!--Get Primary Key P_id from database and hidden from user -->
@@ -69,7 +68,7 @@
 			// Add a default option
 			echo '<option value="" disabled selected>Select an option</option>';
 
-			//Get clinic name by scheduleclinic table
+			
 			$result_clinic = mysqli_query($db,"SELECT clinicname FROM scheduleclinic WHERE doctorincharge IS NOT NULL");
 
 			//The data is available ?
@@ -94,10 +93,11 @@
 		<textarea id="test" placeholder="Type your Reason"  name="reason"></textarea><br><br>
 
        <label>Current Time</label><br><br>
-        <input type="text" name="time" id="name" readonly value=" <?php
-        date_default_timezone_set("Asia/Colombo");
+        <input type="text" name="time" id="name" 
+		readonly value=" <?php date_default_timezone_set("Asia/Colombo");
         echo date("h:i"); ?>">
 		<br><br>
+
 
     
 		<input type="submit" name="booking" value="Booking" id="booking">
@@ -138,7 +138,7 @@
     			<td id="a"><?php echo $row['reason']; ?></td>
     			<td id="a"><?php echo $row['doctor']; ?></td>
                 <td>
-					<!-- Display the button approved or not approved -->
+					
                     <?php if ($row['approval']==0): ?>
                         <button type="button" class="btn btn-danger btn-sm">Not Approved</button>
                     <?php else: ?>
@@ -163,13 +163,10 @@
     				<a href="edit_booking.php?edit_booking=<?php echo $row['booking_id']; ?>" class="btn btn-primary btn-sm" ><i class="fas fa-eye"></i>EDIT</a>
     			</td>
     		</tr>
-    		<?php } ?>
+    		<?php } ?> 
     	</tbody>	
     </table>
 </div>
-
-
-	<!--  message time out -->
 
 	<script type="text/javascript">
 

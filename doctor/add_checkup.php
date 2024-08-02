@@ -80,6 +80,7 @@ if (isset($_GET['add_checkup'])) {
                 <th>Checkup</th>
                 <th>Doctor Comment</th>
                 <th>Checkup date</th>
+                <th>Checkup time</th>
                
                 <th>Action</th>
             </tr>

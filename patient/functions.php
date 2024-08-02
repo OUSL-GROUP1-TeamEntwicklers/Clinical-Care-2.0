@@ -76,30 +76,32 @@ if (isset($_POST['create_account'])) {
         if (count($errors) == 0) {
             $password = md5($password_1);//encrypt the password before saving in the database
  
-    mysqli_query ($db,"INSERT INTO `patient` (`p_id`,`fname`, `lname`, `birth_date`, `age`, `id_number`, `address_line1`, `address_line2`, `email`, `gender`, `civil_status`, `password`, `date`, `time`) VALUES (NULL, '$fname', '$lname', '$birth_date', '$age', '$id_number', '$address_line1', '$address_line2','$email', '$gender', '$civil_status', '$password', '$date', '$time');");
- 
-    //Navigate to login page after registration
-    header('location: login_patient.php');
+    mysqli_query ($db,"INSERT INTO `patient` (`p_id`,`fname`, `lname`, `birth_date`, `age`, `id_number`, `address_line1`, `address_line2`, `email`, `gender`, `civil_status`, `password`, `date`, `time`) 
+    VALUES (NULL, '$fname', '$lname', '$birth_date', '$age', '$id_number', '$address_line1', '$address_line2','$email', '$gender', '$civil_status', '$password', '$date', '$time');");
+    
+    header('location: login_patient.php');   //Navigate to login page after registration
    
 }else{
                         array_push($errors, "Connection errors !");
 }
 }      		
 // ******************************** Login Patient ***********************************************
-// LOGIN PATIENT
+
 if (isset($_POST['sign_btn'])) {
 
-    //Security SQL Injections
+    //escape special characters in a string to prevent SQL injection
   $id_number = mysqli_real_escape_string($db, $_POST['id_number']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
   if (empty($id_number)) {
+
+    
     array_push($errors, "Id Number is required");
   }
   if (empty($password)) {
     array_push($errors, "Password is required");
   }
-
+//   Password hashing
   if (count($errors) == 0) {
     $password = md5($password);
 
@@ -168,10 +170,10 @@ if (isset($_POST['sign_btn'])) {
                 //run the query
 				mysqli_query($db, $query2);
 
-            //After booking successful msg display
+
+            
 				$_SESSION['message']  = "New booking is successfully added!!";
-				
-				header('location: /pis/patient/booking.php');
+
 			}else{
 						array_push($errors, "Connection errors !");		
 			}

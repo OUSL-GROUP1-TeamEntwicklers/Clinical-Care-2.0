@@ -39,15 +39,6 @@
       </ul>
     </nav>
 
-<!-- Display the session messeage -->	
-<?php if (isset($_SESSION['message'])):?>
-    	<div class="msg">
-    	<?php
-    		echo $_SESSION['message'];
-    		unset($_SESSION['message']);
-    	?>	
-    	</div>
-    <?php endif ?>
 
 <div class="container">
 	<h1><b>Notifications</b></h1>
